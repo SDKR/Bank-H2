@@ -71,7 +71,8 @@ namespace H2_Case_Bank
         private void Kundeoversigt_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Selectedcustomer = (Customer)Kundeoversigt_DataGrid.SelectedItem;
-            //acc.getCustomerAccounts(Selectedcustomer);
+            win1.KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(Selectedcustomer);
+            
             win1.KundeNavn_Label.Content = Selectedcustomer.Firstname + " " + Selectedcustomer.Lastname + "'s Konti";
         }
 
