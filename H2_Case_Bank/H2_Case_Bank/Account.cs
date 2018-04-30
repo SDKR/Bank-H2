@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace H2_Case_Bank
 {
-    class Account
+    class Account : Customer
     {
 
         DBAccount DBA = new DBAccount();
@@ -15,7 +15,7 @@ namespace H2_Case_Bank
         public string Accounttype { get; set; }
         public double Interest { get; set; }
         public double Balance { get; set; }
-        public string CreationDate { get; set; }
+        public string AccountCreation { get; set; }
 
 
         public void Deposit() //Find ud af hvad den skal tage i mod.

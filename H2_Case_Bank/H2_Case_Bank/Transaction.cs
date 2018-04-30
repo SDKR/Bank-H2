@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace H2_Case_Bank
 {
-    class Transaction
+    class Transaction : Account
     {
         public int TransactionID { get; set; }
         public int FromAccount { get; set; }
