@@ -21,6 +21,7 @@ namespace H2_Case_Bank
         public void Withdraw(int accountnumber, double transaction)
         {
 
+            // Get account balance
             SqlConnection sqlConn = new SqlConnection(constring);
             SqlCommand cmd = new SqlCommand("Select Balance from Account where PK_Accountnumber = "+ accountnumber +" ", sqlConn);
             sqlConn.Open();
@@ -30,19 +31,21 @@ namespace H2_Case_Bank
             sqlConn.Close();
 
             double currBalance = double.Parse(ds.Tables[0].Rows[0].ToString());
-            Console.WriteLine(currBalance);
+            Console.WriteLine("Current balacne" + currBalance);
 
-                /*
-            var sql = "UPDATE Account SET = @LastName, FirstName = @FirstName, Title = @Title ... ";// repeat for all variables
+            // Make balance calculation
+            currBalance = currBalance - transaction;
+
+            // Update balance 
+            var sql = "UPDATE Account SET Balance = @Balance where PK_Accountnumber = @PK_Accountnumber";
             try
             {
                 using (var connection = new SqlConnection(constring))
                 {
                     using (var command = new SqlCommand(sql, connection))
                     {
-                        command.Parameters.Add("@LastName", SqlDbType.NVarChar).Value = Lnamestring;
-                        command.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = Fnamestring;
-                        command.Parameters.Add("@Title", SqlDbType.NVarChar).Value = Titelstring;
+                        command.Parameters.Add("@Balance", SqlDbType.Float).Value = currBalance;
+                        command.Parameters.Add("@PK_Accountnumber", SqlDbType.Int).Value = accountnumber;
                         // repeat for all variables....
                         connection.Open();
                         command.ExecuteNonQuery();
@@ -51,10 +54,10 @@ namespace H2_Case_Bank
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Failed to update. Error message: {e.Message}");
+                MessageBox.Show($"Failed to withdraw. Error message: {e.Message}");
             }
 
-            */
+
         }
 
     }
