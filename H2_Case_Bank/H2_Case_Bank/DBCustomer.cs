@@ -53,7 +53,7 @@ namespace H2_Case_Bank
                 using (SqlCommand command = new SqlCommand())
                 {
                     
-                    // Creates todays date for the database
+                    // Creates todays date for fussy Mr. database
                     String formatsdate = @"MM\/dd\/yyyy HH:mm";
                     //DateTime thisDate = new DateTime();
                     DateTime localDate = DateTime.Now;
