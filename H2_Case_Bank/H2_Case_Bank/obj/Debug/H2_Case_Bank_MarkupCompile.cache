@@ -4,12 +4,20 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\Emil\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\
+=======
+C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\
+>>>>>>> b65abe6f78736c0be2754afa114a9c08140b0c44
 H2_Case_Bank
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\Emil\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\App.xaml
+=======
+C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\App.xaml
+>>>>>>> b65abe6f78736c0be2754afa114a9c08140b0c44
 2462529049
 
 842206899
