@@ -22,6 +22,7 @@ namespace H2_Case_Bank
     {
         Window1 win1 = new Window1();
         Customer cus = new Customer();
+        Account acc = new Account();
         Customer Selectedcustomer = new Customer();
 
         public MainWindow()
@@ -33,6 +34,7 @@ namespace H2_Case_Bank
         private void Kundeoversigt_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             MainWindow MW = new MainWindow();
+            
             
 
             win1.Show();
@@ -69,6 +71,7 @@ namespace H2_Case_Bank
         private void Kundeoversigt_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Selectedcustomer = (Customer)Kundeoversigt_DataGrid.SelectedItem;
+            //acc.getCustomerAccounts(Selectedcustomer);
             win1.KundeNavn_Label.Content = Selectedcustomer.Firstname + " " + Selectedcustomer.Lastname + "'s Konti";
         }
 
