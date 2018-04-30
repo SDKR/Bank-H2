@@ -22,6 +22,11 @@ namespace H2_Case_Bank
         public Window1()
         {
             InitializeComponent();
+
+            if (KontoType_Combobox.SelectedIndex == 0)
+            {
+                Rente_TextBox.Text = "1.00";
+            }
         }
 
         private void Tilbage_Button_Click(object sender, RoutedEventArgs e)
