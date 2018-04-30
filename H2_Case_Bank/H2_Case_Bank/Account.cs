@@ -17,9 +17,9 @@ namespace H2_Case_Bank
         public double Balance { get; set; }
         public string AccountCreation { get; set; }
 
-        public List<Account> getCustomerAccounts(int customerID)
+        public List<Account> getCustomerAccounts(Customer cus)
         {
-            return DBA.getAccounts(customerID);
+            return DBA.getAccounts(cus.UserID);
         }
 
 
