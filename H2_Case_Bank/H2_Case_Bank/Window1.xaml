@@ -53,8 +53,8 @@
             <ComboBoxItem Content="Udbetal"/>
         </ComboBox>
         <Button Content="Tilbage" HorizontalAlignment="Left" Margin="1046,689,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Tilbage_Button" Background="#FF316BB3" Foreground="White" Click="Tilbage_Button_Click"/>
-        <Label Content="Konto Type" HorizontalAlignment="Left" Margin="758,292,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label"/>
-        <ComboBox HorizontalAlignment="Left" Margin="860,295,0,0" VerticalAlignment="Top" Width="235" x:Name="KontoType_Combobox">
+        <Label Content="Konto Type" HorizontalAlignment="Left" Margin="748,292,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label"/>
+        <ComboBox HorizontalAlignment="Left" Margin="860,295,0,0" VerticalAlignment="Top" Width="295" x:Name="KontoType_Combobox">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -66,6 +66,18 @@
             <ComboBoxItem Content="Budget Konto"/>
             <ComboBoxItem Content="Høj Rente"/>
         </ComboBox>
+        <Label Content="Opret Konto" HorizontalAlignment="Left" Margin="748,245,0,0" VerticalAlignment="Top" Width="407" Foreground="White" FontWeight="Bold" FontSize="24">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3B5A65" Offset="0"/>
+                    <GradientStop Color="#FF85B4E8" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="860,322,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Rente_TextBox"/>
+        <Label Content="Rente" HorizontalAlignment="Left" Margin="748,319,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label_Copy"/>
+        <Label Content="Balance" HorizontalAlignment="Left" Margin="748,347,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label_Copy1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="860,350,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Balance_TextBox"/>
 
     </Grid>
 </Window>
