@@ -12,10 +12,12 @@ namespace H2_Case_Bank
 {
     class DBCustomer
     {
-        //string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
-        string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
+        string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
+        //Kims sql login
+        //string constring = @"server=SKAB4-PC-01\KIM;database=Bank;UID=sa;password=Pa$$w0rd";
+        //Kims sql login 
+        //string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
         //Customer Cus = new Customer();
-        //HEJ! Ymer!
         public List<Customer> returnCustomers()
         {
             List<Customer> CusList = new List<Customer>();
