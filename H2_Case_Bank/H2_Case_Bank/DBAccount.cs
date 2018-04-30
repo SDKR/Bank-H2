@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> 478fc2a7413770fe83f46a644e3ddf040bd3c445
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,11 +16,12 @@ namespace H2_Case_Bank
     class DBAccount
     {
 
-        string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
+
+        //string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
         //Kims sql login
         //string constring = @"server=SKAB4-PC-01\KIM;database=Bank;UID=sa;password=Pa$$w0rd";
         //Kims sql login 
-        //string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
+        string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
 
         public List<Account> getAccounts(int custumerID)
         {
@@ -92,5 +97,10 @@ namespace H2_Case_Bank
 
         }
 
+
+
+    }
+
    }
+
 }

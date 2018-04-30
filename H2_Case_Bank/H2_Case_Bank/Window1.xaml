@@ -42,7 +42,7 @@
             </Label.Background>
         </Label>
         <Label Content="Beløb" HorizontalAlignment="Left" Margin="748,103,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="Beløb_Label"/>
-        <ComboBox HorizontalAlignment="Left" Margin="860,79,0,0" VerticalAlignment="Top" Width="295">
+        <ComboBox HorizontalAlignment="Left" Margin="860,79,0,0" VerticalAlignment="Top" Width="295"  Name="Aktion_ComboBox" DropDownClosed="Aktion_ComboBox_DropDownClosed">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -54,7 +54,7 @@
         </ComboBox>
         <Button Content="Tilbage" HorizontalAlignment="Left" Margin="1046,689,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Tilbage_Button" Background="#FF316BB3" Foreground="White" Click="Tilbage_Button_Click"/>
         <Label Content="Konto Type" HorizontalAlignment="Left" Margin="748,292,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label"/>
-        <ComboBox HorizontalAlignment="Left" Margin="860,295,0,0" VerticalAlignment="Top" Width="295" x:Name="KontoType_Combobox">
+        <ComboBox HorizontalAlignment="Left" Margin="860,295,0,0" VerticalAlignment="Top" Width="295" x:Name="KontoType_Combobox" DropDownClosed="KontoType_Combobox_DropDownClosed">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -78,6 +78,7 @@
         <Label Content="Rente" HorizontalAlignment="Left" Margin="748,319,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label_Copy"/>
         <Label Content="Balance" HorizontalAlignment="Left" Margin="748,347,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label_Copy1"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="860,350,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Balance_TextBox"/>
+        <Button HorizontalAlignment="Left" Margin="1046,135,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Udfør_Button" Background="#FF316BB3" Foreground="White" Click="Udfør_Button_Click"/>
 
     </Grid>
 </Window>

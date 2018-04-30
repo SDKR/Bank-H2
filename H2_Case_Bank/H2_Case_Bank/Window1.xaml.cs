@@ -23,10 +23,8 @@ namespace H2_Case_Bank
         {
             InitializeComponent();
 
-            if (KontoType_Combobox.SelectedIndex == 0)
-            {
-                Rente_TextBox.Text = "1.00";
-            }
+            Rente();
+            UdførButton_content();
         }
 
         private void Tilbage_Button_Click(object sender, RoutedEventArgs e)
@@ -45,5 +43,56 @@ namespace H2_Case_Bank
                 MessageBox.Show("Beløbet kan kun bestå af tal.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void KontoType_Combobox_DropDownClosed(object sender, EventArgs e)
+        {
+            Rente();
+        }
+        
+
+
+        private void Udfør_Button_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+         private void Aktion_ComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            UdførButton_content();
+        }
+
+        private void Rente()
+        {
+            if (KontoType_Combobox.SelectedIndex == 0)
+            {
+                Rente_TextBox.Text = "0.80";
+            }
+            else if (KontoType_Combobox.SelectedIndex == 1)
+            {
+                Rente_TextBox.Text = "1.12";
+            }
+            else if (KontoType_Combobox.SelectedIndex == 2)
+            {
+                Rente_TextBox.Text = "0.52";
+            }
+            else if (KontoType_Combobox.SelectedIndex == 3)
+            {
+                Rente_TextBox.Text = "2.07";
+            }
+        }
+        private void UdførButton_content()
+        {
+            if (Aktion_ComboBox.SelectedIndex == 0)
+            {
+                Udfør_Button.Content = "Indsæt";
+            }
+
+            else if (Aktion_ComboBox.SelectedIndex == 1)
+            {
+                Udfør_Button.Content = "Udbetal";
+            }
+        }
+
+     
     }
 }
