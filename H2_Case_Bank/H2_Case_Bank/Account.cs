@@ -8,6 +8,9 @@ namespace H2_Case_Bank
 {
     class Account
     {
+
+        DBAccount DBA = new DBAccount();
+
         public int Accountnumber { get; set; }
         public string Accounttype { get; set; }
         public double Interest { get; set; }
@@ -20,9 +23,9 @@ namespace H2_Case_Bank
             //YES!
         }
 
-        public void Withdraw()
+        public void Withdraw(int accountnumber, double transaction)
         {
-
+            DBA.Withdraw(accountnumber, transaction);
         }
 
     }

@@ -91,7 +91,25 @@ namespace H2_Case_Bank
 
         public void deleteCustomer(int UserID)
         {
-
+            /*
+             try
+    {
+    using (SqlConnection con = new SqlConnection(Global.connectionString))
+    {
+         con.Open();
+         using (SqlCommand command = new SqlCommand("DELETE FROM " + table + " WHERE " + columnName + " = '" + IDNumber+"'", con))
+         {
+               command.ExecuteNonQuery();
+         }
+         con.Close();
+    }
+    }
+    catch (SystemException ex)
+       {
+       MessageBox.Show(string.Format("An error occurred: {0}", ex.Message));
+       }
+    }
+             * */
         }
 
     }
