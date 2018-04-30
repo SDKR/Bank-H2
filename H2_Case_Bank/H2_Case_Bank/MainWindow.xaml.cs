@@ -20,7 +20,9 @@ namespace H2_Case_Bank
     /// </summary>
     public partial class MainWindow : Window
     {
+        Window1 win1 = new Window1();
         Customer cus = new Customer();
+        Customer Selectedcustomer = new Customer();
 
         public MainWindow()
         {
@@ -31,9 +33,9 @@ namespace H2_Case_Bank
         private void Kundeoversigt_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             MainWindow MW = new MainWindow();
-            Window1 win = new Window1();
+            
 
-            win.Show();
+            win1.Show();
             this.Close();
             
         }
@@ -62,6 +64,24 @@ namespace H2_Case_Bank
 
             Kundeoversigt_DataGrid.ItemsSource = null;
             Kundeoversigt_DataGrid.ItemsSource = cus.ReturnCustomers();
+        }
+
+        private void Kundeoversigt_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Selectedcustomer = (Customer)Kundeoversigt_DataGrid.SelectedItem;
+            win1.KundeNavn_Label.Content = Selectedcustomer.Firstname + " " + Selectedcustomer.Lastname + "'s Konti";
+        }
+
+        private void SletKunde_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Selectedcustomer.Firstname == null)
+            {
+                MessageBox.Show("Vælg en kunde du vil slette.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+
+            }
         }
     }
 }
