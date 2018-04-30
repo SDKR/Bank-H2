@@ -22,7 +22,7 @@ namespace H2_Case_Bank
         public Window1()
         {
             InitializeComponent();
-
+            
             Rente();
             UdførButton_content();
         }
