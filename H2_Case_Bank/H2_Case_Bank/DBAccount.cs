@@ -13,11 +13,11 @@ namespace H2_Case_Bank
     {
 
 
-        //string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
+        string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
         //Kims sql login
         //string constring = @"server=SKAB4-PC-01\KIM;database=Bank;UID=sa;password=Pa$$w0rd";
         //Kims sql login 
-        string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
+        //string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
 
         public List<Account> getAccounts(int custumerID)
         {
