@@ -59,6 +59,9 @@ namespace H2_Case_Bank
         private void Opret_Button_Click(object sender, RoutedEventArgs e)
         {
             cus.CreateCustomer(Fornavn_TextBox.Text, Efternavn_TextBox.Text);
+
+            Kundeoversigt_DataGrid.ItemsSource = null;
+            Kundeoversigt_DataGrid.ItemsSource = cus.ReturnCustomers();
         }
     }
 }

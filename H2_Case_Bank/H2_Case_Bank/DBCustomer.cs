@@ -12,7 +12,8 @@ namespace H2_Case_Bank
 {
     class DBCustomer
     {
-        string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
+        //string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
+        string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
         //Customer Cus = new Customer();
 
         public List<Customer> returnCustomers()
