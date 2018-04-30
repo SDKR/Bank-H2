@@ -87,5 +87,10 @@ namespace H2_Case_Bank
 
         }
 
+        public void deleteCustomer(int UserID)
+        {
+
+        }
+
     }
 }
