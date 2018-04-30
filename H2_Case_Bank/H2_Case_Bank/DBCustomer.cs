@@ -12,10 +12,12 @@ namespace H2_Case_Bank
 {
     class DBCustomer
     {
-        //string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
-        string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
+        string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
+        //Kims sql login
+        //string constring = @"server=SKAB4-PC-01\KIM;database=Bank;UID=sa;password=Pa$$w0rd";
+        //Kims sql login 
+        //string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
         //Customer Cus = new Customer();
-        //HEJ! Ymer!
         public List<Customer> returnCustomers()
         {
             List<Customer> CusList = new List<Customer>();
@@ -54,7 +56,7 @@ namespace H2_Case_Bank
                 using (SqlCommand command = new SqlCommand())
                 {
                     
-                    // Creates todays date for the database
+                    // Creates todays date for fussy Mr. database
                     String formatsdate = @"MM\/dd\/yyyy HH:mm";
                     //DateTime thisDate = new DateTime();
                     DateTime localDate = DateTime.Now;
@@ -85,6 +87,29 @@ namespace H2_Case_Bank
                 }
             }
 
+        }
+
+        public void deleteCustomer(int UserID)
+        {
+            /*
+             try
+    {
+    using (SqlConnection con = new SqlConnection(Global.connectionString))
+    {
+         con.Open();
+         using (SqlCommand command = new SqlCommand("DELETE FROM " + table + " WHERE " + columnName + " = '" + IDNumber+"'", con))
+         {
+               command.ExecuteNonQuery();
+         }
+         con.Close();
+    }
+    }
+    catch (SystemException ex)
+       {
+       MessageBox.Show(string.Format("An error occurred: {0}", ex.Message));
+       }
+    }
+             * */
         }
 
     }

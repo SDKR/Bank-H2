@@ -21,6 +21,11 @@ namespace H2_Case_Bank
             DBC.createCustomer(firstname, lastname);
         }
 
+        public void DeleteCustomer(int UserID)
+        {
+            //Delete Customer
+        }
+
         public void CreateAccount(string firstname, string lastname)
         {
             // Do something
