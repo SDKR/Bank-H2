@@ -32,6 +32,8 @@ F:\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.g.resources
 F:\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.Properties.Resources.resources
 F:\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.csproj.GenerateResource.Cache
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 C:\Users\Emil\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\bin\Debug\H2_Case_Bank.exe.config
 C:\Users\Emil\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.exe
 C:\Users\Emil\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.pdb
@@ -49,6 +51,7 @@ C:\Users\Emil\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Ca
 C:\Users\Emil\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.Properties.Resources.resources
 C:\Users\Emil\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.csproj.GenerateResource.Cache
 =======
+>>>>>>> d3898743a3df2c89a8747a7cb8b3acee00e8e7ab
 C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\bin\Debug\H2_Case_Bank.exe.config
 C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\bin\Debug\H2_Case_Bank.exe
 C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\bin\Debug\H2_Case_Bank.pdb
@@ -66,4 +69,7 @@ C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Cas
 C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.csproj.CoreCompileInputs.cache
 C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.exe
 C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.pdb
+<<<<<<< HEAD
+=======
 >>>>>>> b65abe6f78736c0be2754afa114a9c08140b0c44
+>>>>>>> d3898743a3df2c89a8747a7cb8b3acee00e8e7ab
