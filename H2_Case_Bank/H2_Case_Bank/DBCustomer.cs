@@ -14,7 +14,7 @@ namespace H2_Case_Bank
     {
         string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
         //Customer Cus = new Customer();
-
+        //HEJ!
         public List<Customer> returnCustomers()
         {
             List<Customer> CusList = new List<Customer>();
