@@ -23,6 +23,7 @@ namespace H2_Case_Bank
         {
             InitializeComponent();
             
+            
             Rente();
             UdførButton_content();
         }
