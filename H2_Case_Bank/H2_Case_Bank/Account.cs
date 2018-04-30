@@ -8,5 +8,22 @@ namespace H2_Case_Bank
 {
     class Account
     {
+        public int Accountnumber { get; set; }
+        public string Accounttype { get; set; }
+        public double Interest { get; set; }
+        public double Balance { get; set; }
+        public string CreationDate { get; set; }
+
+
+        public void Deposit() //Find ud af hvad den skal tage i mod.
+        {
+            //YES!
+        }
+
+        public void Withdraw()
+        {
+
+        }
+
     }
 }
