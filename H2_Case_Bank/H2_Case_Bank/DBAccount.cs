@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 478fc2a7413770fe83f46a644e3ddf040bd3c445
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
@@ -100,7 +96,5 @@ namespace H2_Case_Bank
 
 
     }
-
-   }
 
 }
