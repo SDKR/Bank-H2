@@ -15,7 +15,7 @@ namespace H2_Case_Bank
         public string Accounttype { get; set; }
         public double Interest { get; set; }
         public double Balance { get; set; }
-        public string AccountCreation { get; set; }
+        public DateTime AccountCreation { get; set; }
 
         public List<Account> getCustomerAccounts(Customer cus)
         {
