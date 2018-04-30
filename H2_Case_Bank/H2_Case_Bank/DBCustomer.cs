@@ -13,9 +13,13 @@ namespace H2_Case_Bank
     class DBCustomer
     {
         //string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
+<<<<<<< HEAD
         //Kims sql login
         string constring = @"server=SKAB4-PC-01\KIM;database=Bank;UID=sa;password=Pa$$w0rd";
         //Kims sql login 
+=======
+        string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
+>>>>>>> 685bd9d33040df5caf96e40f8684583afcede969
         //Customer Cus = new Customer();
         public List<Customer> returnCustomers()
         {
@@ -55,7 +59,7 @@ namespace H2_Case_Bank
                 using (SqlCommand command = new SqlCommand())
                 {
                     
-                    // Creates todays date for the database
+                    // Creates todays date for fussy Mr. database
                     String formatsdate = @"MM\/dd\/yyyy HH:mm";
                     //DateTime thisDate = new DateTime();
                     DateTime localDate = DateTime.Now;
