@@ -18,6 +18,38 @@ namespace H2_Case_Bank
         //Kims sql login 
         //string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
 
+        public List<Account> getAccounts(int custumerID)
+        {
+            List<Account> CusList = new List<Account>();
+
+            SqlConnection sqlConn = new SqlConnection(constring);
+            SqlCommand cmd = new SqlCommand("Select * from Account where FK_CustomerID = "+custumerID+"", sqlConn);
+            sqlConn.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            adapt.Fill(ds);
+            sqlConn.Close();
+
+            var empList = ds.Tables[0].AsEnumerable().Select(dataRow => new Account { Accountnumber = dataRow.Field<int>("PK_Accountnumber"), Accounttype = dataRow.Field<string>("AccountType"), Interest = dataRow.Field<float>("Interest"), Balance = dataRow.Field<float>("Balance"), AccountCreation = dataRow.Field<DateTime>("CreationDate").ToString() }).ToList();
+
+            for (int i = 0; i < empList.Count; i++)
+            {
+                Console.WriteLine(empList[i].Accountnumber);
+                Console.WriteLine(empList[i].Accounttype);
+                Console.WriteLine(empList[i].Interest);
+                Console.WriteLine(empList[i].Balance);
+                Console.WriteLine(empList[i].AccountCreation);
+                Console.WriteLine();
+            }
+            //Customer Cus = new Customer(ds.Tables[0].Rows[0], );
+
+            // CusList.Add()
+            //Console.WriteLine(ds.GetXml());
+            //string LoginInfo = ds.Tables[0].Rows[0]["Brugertype"].ToString();
+
+            return empList;
+        }
+
         public void Withdraw(int accountnumber, double transaction)
         {
 
