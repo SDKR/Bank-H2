@@ -19,6 +19,7 @@ namespace H2_Case_Bank
     /// </summary>
     public partial class Window1 : Window
     {
+        
         Account SelectedAccount = new Account();
         Transaction trans = new Transaction();
         public Window1()
@@ -104,6 +105,14 @@ namespace H2_Case_Bank
             
             Transaktion_Label.Content = "Overførelser (" + SelectedAccount.Accountnumber + ")";
            
+        }
+
+        private void Opret_Button_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedAccount.Accounttype = KontoType_Combobox.Text;
+            SelectedAccount.Interest = decimal.Parse(Rente_TextBox.Text);
+            SelectedAccount.Balance = decimal.Parse(Balance_TextBox.Text);
+            //SelectedAccount.UserID = 
         }
     }
 }
