@@ -12,9 +12,13 @@ namespace H2_Case_Bank
 {
     class DBAccount
     {
+        NumberFormatInfo remove2 = new NumberFormatInfo();
+        
 
         public List<Account> getAccounts(int custumerID)
         {
+            remove2.CurrencyDecimalDigits = 2;
+            remove2.NumberDecimalDigits = 2;
             List<Account> CusList = new List<Account>();
 
             SqlConnection sqlConn = new SqlConnection(DatabaseLogin.constring);
