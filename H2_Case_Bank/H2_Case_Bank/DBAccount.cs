@@ -31,7 +31,13 @@ namespace H2_Case_Bank
             adapt.Fill(ds);
             sqlConn.Close();
 
-            var empList = ds.Tables[0].AsEnumerable().Select(dataRow => new Account { Accountnumber = dataRow.Field<int>("PK_Accountnumber"), Accounttype = dataRow.Field<string>("AccountType"), Interest = dataRow.Field<float>("Interest"), Balance = dataRow.Field<float>("Balance"), AccountCreation = dataRow.Field<DateTime>("CreationDate") }).ToList();
+            var empList = ds.Tables[0].AsEnumerable().Select(dataRow => new Account {
+                Accountnumber = dataRow.Field<int>("PK_Accountnumber"),
+                Accounttype = dataRow.Field<string>("AccountType"),
+                Interest = dataRow.Field<decimal>("Interest"),
+                Balance = dataRow.Field<decimal>("Balance"),
+                AccountCreation = dataRow.Field<DateTime>("CreationDate")
+            }).ToList();
 
             for (int i = 0; i < empList.Count; i++)
             {
