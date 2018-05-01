@@ -72,9 +72,10 @@ namespace H2_Case_Bank
 
                     command.Connection = connection;
                     command.CommandType = CommandType.Text;
-                    command.CommandText = "INSERT into Account (AccountType, Interest, CreationDate, FK_CustomerID) VALUES (@AccountType, @Interest, @CreationDate, @FK_CustomerID)";
+                    command.CommandText = "INSERT into Account (AccountType, Interest, Balance, CreationDate, FK_CustomerID) VALUES (@AccountType, @Interest, @Balance, @CreationDate, @FK_CustomerID)";
                     command.Parameters.AddWithValue("@AccountType", acc.Accounttype);
                     command.Parameters.AddWithValue("@Interest", acc.Interest);
+                    command.Parameters.AddWithValue("@Balance", acc.Balance);
                     command.Parameters.AddWithValue("@CreationDate", today);
                     command.Parameters.AddWithValue("@FK_CustomerID", acc.FK_CustomerID);
                     try
@@ -96,7 +97,7 @@ namespace H2_Case_Bank
             }
         }
 
-        public void Withdraw(int accountnumber, double transaction)
+        public void Withdraw(int accountnumber, decimal transaction)
         {
 
             // Get account balance
@@ -108,7 +109,7 @@ namespace H2_Case_Bank
             adapt.Fill(ds);
             sqlConn.Close();
 
-            double currBalance = double.Parse(ds.Tables[0].Rows[0].ToString());
+            decimal currBalance = decimal.Parse(ds.Tables[0].Rows[0][0].ToString());
             Console.WriteLine("Current balacne" + currBalance);
 
             // Make balance calculation
