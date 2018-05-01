@@ -13,8 +13,8 @@ namespace H2_Case_Bank
 
         public int Accountnumber { get; set; }
         public string Accounttype { get; set; }
-        public double Interest { get; set; }
-        public double Balance { get; set; }
+        public decimal Interest { get; set; }
+        public decimal Balance { get; set; }
         public DateTime AccountCreation { get; set; }
 
         public List<Account> getCustomerAccounts(Customer cus)
