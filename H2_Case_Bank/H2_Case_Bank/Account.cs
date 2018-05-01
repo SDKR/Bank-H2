@@ -16,6 +16,12 @@ namespace H2_Case_Bank
         public decimal Interest { get; set; }
         public decimal Balance { get; set; }
         public DateTime AccountCreation { get; set; }
+        public int FK_CustomerID { get; set; }
+
+        public void CreateAccount(Account acc)
+        {
+            DBA.createAccount(acc);
+        }
 
         public List<Account> getCustomerAccounts(Customer cus)
         {
