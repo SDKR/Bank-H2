@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,45 @@ namespace H2_Case_Bank
             //string LoginInfo = ds.Tables[0].Rows[0]["Brugertype"].ToString();
 
             return empList;
+        }
+
+        public void createAccount(Account acc)
+        {
+            using (SqlConnection connection = new SqlConnection(DatabaseLogin.constring))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+
+                    // Creates todays date for fussy Mr. database
+                    String formatsdate = @"MM\/dd\/yyyy HH:mm";
+                    DateTime localDate = DateTime.Now;
+                    var cultureInfo = new CultureInfo("fr-FR");
+                    string today = localDate.ToString(formatsdate);
+
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT into Account (AccountType, Interest, CreationDate, FK_CustomerID) VALUES (@AccountType, @Interest, @CreationDate, @FK_CustomerID)";
+                    command.Parameters.AddWithValue("@AccountType", acc.Accounttype);
+                    command.Parameters.AddWithValue("@Interest", acc.Interest);
+                    command.Parameters.AddWithValue("@CreationDate", today);
+                    command.Parameters.AddWithValue("@FK_CustomerID", acc.FK_CustomerID);
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        // error here
+                        Console.WriteLine("Create account Error");
+                        Console.WriteLine(e);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
         }
 
         public void Withdraw(int accountnumber, double transaction)
