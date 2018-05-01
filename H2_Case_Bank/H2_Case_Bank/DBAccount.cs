@@ -12,13 +12,6 @@ namespace H2_Case_Bank
     class DBAccount
     {
 
-
-        //string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
-        //Kims sql login
-        //string constring = @"server=SKAB4-PC-01\KIM;database=Bank;UID=sa;password=Pa$$w0rd";
-        //Kims sql login 
-        //string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
-
         public List<Account> getAccounts(int custumerID)
         {
             List<Account> CusList = new List<Account>();
@@ -96,10 +89,7 @@ namespace H2_Case_Bank
                 MessageBox.Show($"Failed to withdraw. Error message: {e.Message}");
             }
 
-
         }
-
-
 
     }
 
