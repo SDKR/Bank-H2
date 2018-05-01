@@ -29,9 +29,9 @@ namespace H2_Case_Bank
         }
 
 
-        public void Deposit() //Find ud af hvad den skal tage i mod.
+        public void Deposit(int accountnumber, decimal transaction)
         {
-            //YES!
+            DBA.deposit(accountnumber, transaction);
         }
 
         public void Withdraw(int accountnumber, decimal transaction)
