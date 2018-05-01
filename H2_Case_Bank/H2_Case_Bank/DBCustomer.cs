@@ -12,17 +12,12 @@ namespace H2_Case_Bank
 {
     class DBCustomer
     {
-        //string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
-        //Kims sql login
-        //string constring = @"server=SKAB4-PC-01\KIM;database=Bank;UID=sa;password=Pa$$w0rd";
-        //Kims sql login 
-        string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
         //Customer Cus = new Customer();
         public List<Customer> returnCustomers()
         {
             List<Customer> CusList = new List<Customer>();
 
-            SqlConnection sqlConn = new SqlConnection(constring);
+            SqlConnection sqlConn = new SqlConnection(DatabaseLogin.constring);
             SqlCommand cmd = new SqlCommand("Select * from Customer", sqlConn);
             sqlConn.Open();
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
@@ -51,7 +46,7 @@ namespace H2_Case_Bank
 
         public void createCustomer(String Firstname, String Lastname)
         {
-            using (SqlConnection connection = new SqlConnection(constring))
+            using (SqlConnection connection = new SqlConnection(DatabaseLogin.constring))
             {
                 using (SqlCommand command = new SqlCommand())
                 {

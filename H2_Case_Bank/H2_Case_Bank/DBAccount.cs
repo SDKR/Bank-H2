@@ -12,18 +12,11 @@ namespace H2_Case_Bank
     class DBAccount
     {
 
-
-        //string constring = @"server=DESKTOP-5QOPHSN\SQLOPG;database=Bank;UID=sa;password=Wak40336";
-        //Kims sql login
-        //string constring = @"server=SKAB4-PC-01\KIM;database=Bank;UID=sa;password=Pa$$w0rd";
-        //Kims sql login 
-        string constring = @"server=SKAB4-PC-03;database=Bank;UID=sa;password=Passw0rd";
-
         public List<Account> getAccounts(int custumerID)
         {
             List<Account> CusList = new List<Account>();
 
-            SqlConnection sqlConn = new SqlConnection(constring);
+            SqlConnection sqlConn = new SqlConnection(DatabaseLogin.constring);
             SqlCommand cmd = new SqlCommand("Select * from Account where FK_CustomerID = "+custumerID+"", sqlConn);
             sqlConn.Open();
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
@@ -61,7 +54,7 @@ namespace H2_Case_Bank
         {
 
             // Get account balance
-            SqlConnection sqlConn = new SqlConnection(constring);
+            SqlConnection sqlConn = new SqlConnection(DatabaseLogin.constring);
             SqlCommand cmd = new SqlCommand("Select Balance from Account where PK_Accountnumber = "+ accountnumber +" ", sqlConn);
             sqlConn.Open();
             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
@@ -79,7 +72,7 @@ namespace H2_Case_Bank
             var sql = "UPDATE Account SET Balance = @Balance where PK_Accountnumber = @PK_Accountnumber";
             try
             {
-                using (var connection = new SqlConnection(constring))
+                using (var connection = new SqlConnection(DatabaseLogin.constring))
                 {
                     using (var command = new SqlCommand(sql, connection))
                     {
