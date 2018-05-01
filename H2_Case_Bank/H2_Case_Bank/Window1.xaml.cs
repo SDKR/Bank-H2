@@ -20,7 +20,7 @@ namespace H2_Case_Bank
     public partial class Window1 : Window
     {
         Account SelectedAccount = new Account();
-
+        Transaction trans = new Transaction();
         public Window1()
         {
             InitializeComponent();
@@ -100,7 +100,7 @@ namespace H2_Case_Bank
         {
             SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
 
-            //Transaktion_DataGrid.ItemsSource = acc.getCustomerAccounts(SelectedAccount);
+            Transaktion_DataGrid.ItemsSource = trans.getTransactions(SelectedAccount);
             
             Transaktion_Label.Content = "Overførelser (" + SelectedAccount.Accountnumber + ")";
            
