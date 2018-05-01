@@ -68,9 +68,16 @@ namespace H2_Case_Bank
             else if (Aktion_ComboBox.SelectedIndex == 1)
             {
                 //Udbetal
-                acc.Withdraw(int.Parse(KontoNR_TextBox.Text), decimal.Parse(Beløb_TextBox.Text));
-                KundeNavn_DataGrid.ItemsSource = null;
-                KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(cus);
+                SelectedAccount.Withdraw(int.Parse(KontoNR_TextBox.Text), decimal.Parse(Beløb_TextBox.Text));
+
+                //Transaktion_DataGrid.ItemsSource = null;
+                //KundeNavn_DataGrid.ItemsSource = null;
+                //SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
+                //cus.UserID = int.Parse(UserID_TextBox.Text);
+                //KundeNavn_DataGrid.ItemsSource = SelectedAccount.getCustomerAccounts(cus);
+                this.Close();
+                Window1 win1 = new Window1();
+                win1.Show();
             }
             
         }
