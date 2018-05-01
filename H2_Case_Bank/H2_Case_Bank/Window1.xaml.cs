@@ -19,6 +19,9 @@ namespace H2_Case_Bank
     /// </summary>
     public partial class Window1 : Window
     {
+        
+        Account SelectedAccount = new Account();
+        Transaction trans = new Transaction();
         public Window1()
         {
             InitializeComponent();
@@ -94,6 +97,22 @@ namespace H2_Case_Bank
             }
         }
 
-     
+        private void KundeNavn_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
+
+            Transaktion_DataGrid.ItemsSource = trans.getTransactions(SelectedAccount);
+            
+            Transaktion_Label.Content = "Overførelser (" + SelectedAccount.Accountnumber + ")";
+           
+        }
+
+        private void Opret_Button_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedAccount.Accounttype = KontoType_Combobox.Text;
+            SelectedAccount.Interest = decimal.Parse(Rente_TextBox.Text);
+            SelectedAccount.Balance = decimal.Parse(Balance_TextBox.Text);
+            //SelectedAccount.UserID = 
+        }
     }
 }

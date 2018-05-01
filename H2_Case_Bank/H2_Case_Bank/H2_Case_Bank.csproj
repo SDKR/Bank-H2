@@ -56,8 +56,10 @@
     </ApplicationDefinition>
     <Compile Include="Account.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="DatabaseLogin.cs" />
     <Compile Include="DBAccount.cs" />
     <Compile Include="DBCustomer.cs" />
+    <Compile Include="DBTransaction.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
