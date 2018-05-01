@@ -8,15 +8,18 @@ namespace H2_Case_Bank
 {
     class Transaction : Account
     {
+
+        DBTransaction dbt = new DBTransaction();
+
         public int TransactionID { get; set; }
         public int FromAccount { get; set; }
         public int ToAccount { get; set; }
-        public string Date { get; set; }
-        public double Amount { get; set; }
-
-        public string Print()
+        public DateTime Date { get; set; }
+        public decimal Amount { get; set; }
+        
+        public List<Transaction> getTransactions(Account acc)
         {
-            return "hej"; //her skal der skrives noget.
+            return dbt.getTransactions(acc);
         }
 
     }
