@@ -138,6 +138,45 @@ namespace H2_Case_Bank
 
         }
 
+        public void deposit(int accountnumber, decimal transaction)
+        {
+            // Get account balance
+            SqlConnection sqlConn = new SqlConnection(DatabaseLogin.constring);
+            SqlCommand cmd = new SqlCommand("Select Balance from Account where PK_Accountnumber = " + accountnumber + " ", sqlConn);
+            sqlConn.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            adapt.Fill(ds);
+            sqlConn.Close();
+
+            decimal currBalance = decimal.Parse(ds.Tables[0].Rows[0][0].ToString());
+            Console.WriteLine("Current balacne" + currBalance);
+
+            // Make balance calculation
+            currBalance = currBalance + transaction;
+
+            // Update balance 
+            var sql = "UPDATE Account SET Balance = @Balance where PK_Accountnumber = @PK_Accountnumber";
+            try
+            {
+                using (var connection = new SqlConnection(DatabaseLogin.constring))
+                {
+                    using (var command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.Add("@Balance", SqlDbType.Float).Value = currBalance;
+                        command.Parameters.Add("@PK_Accountnumber", SqlDbType.Int).Value = accountnumber;
+                        // repeat for all variables....
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Failed to deposit. Error message: {e.Message}");
+            }
+        }
+
     }
 
 }
