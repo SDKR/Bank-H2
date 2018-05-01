@@ -30,7 +30,8 @@ namespace H2_Case_Bank
                 Accounttype = dataRow.Field<string>("AccountType"),
                 Interest = dataRow.Field<decimal>("Interest"),
                 Balance = dataRow.Field<decimal>("Balance"),
-                AccountCreation = dataRow.Field<DateTime>("CreationDate")
+                AccountCreation = dataRow.Field<DateTime>("CreationDate"),
+                FK_CustomerID = dataRow.Field<int>("FK_CustomerID")
             }).ToList();
 
             for (int i = 0; i < empList.Count; i++)
@@ -40,6 +41,7 @@ namespace H2_Case_Bank
                 Console.WriteLine(empList[i].Interest);
                 Console.WriteLine(empList[i].Balance);
                 Console.WriteLine(empList[i].AccountCreation);
+                Console.WriteLine(empList[i].FK_CustomerID);
                 Console.WriteLine();
             }
             //Customer Cus = new Customer(ds.Tables[0].Rows[0], );
