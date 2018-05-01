@@ -13,7 +13,7 @@
                 <GradientStop Color="#FF476382" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <DataGrid HorizontalAlignment="Left" Height="657" Margin="39,71,0,0" VerticalAlignment="Top" Width="310" Name="KundeNavn_DataGrid"/>
+        <DataGrid HorizontalAlignment="Left" Height="657" Margin="39,71,0,0" VerticalAlignment="Top" Width="310" Name="KundeNavn_DataGrid" SelectionChanged="KundeNavn_DataGrid_SelectionChanged"/>
         <Label Content="(Kundenavn)" HorizontalAlignment="Left" Margin="39,29,0,0" VerticalAlignment="Top" Width="310" Foreground="White" FontWeight="Bold" FontSize="24" Name="KundeNavn_Label">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -22,8 +22,8 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <DataGrid HorizontalAlignment="Left" Height="657" Margin="383,71,0,0" VerticalAlignment="Top" Width="310"/>
-        <Label Content="Transaktion" HorizontalAlignment="Left" Margin="383,29,0,0" VerticalAlignment="Top" Width="310" Foreground="White" FontWeight="Bold" FontSize="24">
+        <DataGrid HorizontalAlignment="Left" Height="657" Margin="383,71,0,0" VerticalAlignment="Top" Width="310" Name="Transaktion_DataGrid"/>
+        <Label Content="Overførelser" HorizontalAlignment="Left" Margin="383,29,0,0" VerticalAlignment="Top" Width="310" Foreground="White" FontWeight="Bold" FontSize="24" Name="Transaktion_Label">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3B5A65" Offset="0"/>

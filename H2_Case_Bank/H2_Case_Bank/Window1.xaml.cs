@@ -19,6 +19,8 @@ namespace H2_Case_Bank
     /// </summary>
     public partial class Window1 : Window
     {
+        Account SelectedAccount = new Account();
+
         public Window1()
         {
             InitializeComponent();
@@ -94,6 +96,14 @@ namespace H2_Case_Bank
             }
         }
 
-     
+        private void KundeNavn_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
+
+            //Transaktion_DataGrid.ItemsSource = acc.getCustomerAccounts(SelectedAccount);
+            
+            Transaktion_Label.Content = "Overførelser (" + SelectedAccount.Accountnumber + ")";
+           
+        }
     }
 }
