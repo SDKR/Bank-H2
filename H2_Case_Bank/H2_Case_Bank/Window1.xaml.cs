@@ -19,8 +19,10 @@ namespace H2_Case_Bank
     /// </summary>
     public partial class Window1 : Window
     {
-        
+        Account acc = new Account();
+        Account CreateAccount = new Account();
         Account SelectedAccount = new Account();
+        Customer cus = new Customer();
         Transaction trans = new Transaction();
         public Window1()
         {
@@ -57,7 +59,20 @@ namespace H2_Case_Bank
 
         private void Udfør_Button_Click(object sender, RoutedEventArgs e)
         {
-           
+            if (Aktion_ComboBox.SelectedIndex == 0)
+            {
+                //Indsæt
+
+            }
+
+            else if (Aktion_ComboBox.SelectedIndex == 1)
+            {
+                //Udbetal
+                acc.Withdraw(int.Parse(KontoNR_TextBox.Text), decimal.Parse(Beløb_TextBox.Text));
+                KundeNavn_DataGrid.ItemsSource = null;
+                KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(cus);
+            }
+            
         }
 
          private void Aktion_ComboBox_DropDownClosed(object sender, EventArgs e)
@@ -104,15 +119,23 @@ namespace H2_Case_Bank
             Transaktion_DataGrid.ItemsSource = trans.getTransactions(SelectedAccount);
             
             Transaktion_Label.Content = "Overførelser (" + SelectedAccount.Accountnumber + ")";
+
+            KontoNR_TextBox.Text = SelectedAccount.Accountnumber.ToString();
            
         }
 
         private void Opret_Button_Click(object sender, RoutedEventArgs e)
         {
-            SelectedAccount.Accounttype = KontoType_Combobox.Text;
-            SelectedAccount.Interest = decimal.Parse(Rente_TextBox.Text);
-            SelectedAccount.Balance = decimal.Parse(Balance_TextBox.Text);
-            //SelectedAccount.UserID = 
+            CreateAccount.Accounttype = KontoType_Combobox.Text;
+            CreateAccount.Interest = decimal.Parse(Rente_TextBox.Text);
+            CreateAccount.Balance = decimal.Parse(Balance_TextBox.Text);
+            CreateAccount.FK_CustomerID = int.Parse(UserID_TextBox.Text);
+
+            CreateAccount.CreateAccount(CreateAccount);
+
+            cus.UserID = int.Parse(UserID_TextBox.Text);
+            KundeNavn_DataGrid.ItemsSource = null;
+            KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(cus);
         }
     }
 }

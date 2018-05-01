@@ -74,6 +74,7 @@ namespace H2_Case_Bank
             win1.KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(Selectedcustomer);
             
             win1.KundeNavn_Label.Content = Selectedcustomer.Firstname + " " + Selectedcustomer.Lastname + "'s Konti";
+            win1.UserID_TextBox.Text = Selectedcustomer.UserID.ToString();
         }
 
         private void SletKunde_Button_Click(object sender, RoutedEventArgs e)

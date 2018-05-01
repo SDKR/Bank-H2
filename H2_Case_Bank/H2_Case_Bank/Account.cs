@@ -34,7 +34,7 @@ namespace H2_Case_Bank
             //YES!
         }
 
-        public void Withdraw(int accountnumber, double transaction)
+        public void Withdraw(int accountnumber, decimal transaction)
         {
             DBA.Withdraw(accountnumber, transaction);
         }
