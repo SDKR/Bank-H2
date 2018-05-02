@@ -62,7 +62,7 @@ namespace H2_Case_Bank
             if (Aktion_ComboBox.SelectedIndex == 0)
             {
                 //Indsæt
-
+                
             }
 
             else if (Aktion_ComboBox.SelectedIndex == 1)
@@ -74,7 +74,6 @@ namespace H2_Case_Bank
 
                 cus.UserID = int.Parse(UserID_TextBox.Text);
                 KundeNavn_DataGrid.ItemsSource = SelectedAccount.getCustomerAccounts(cus);
-
 
             }
             

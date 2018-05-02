@@ -34,8 +34,11 @@ namespace H2_Case_Bank
         private void Kundeoversigt_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             MainWindow MW = new MainWindow();
-            
-            
+
+            win1.KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(Selectedcustomer);
+
+            win1.KundeNavn_Label.Content = Selectedcustomer.Firstname + " " + Selectedcustomer.Lastname + "'s Konti";
+            win1.UserID_TextBox.Text = Selectedcustomer.UserID.ToString();
 
             win1.Show();
             this.Close();
@@ -70,11 +73,15 @@ namespace H2_Case_Bank
 
         private void Kundeoversigt_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Selectedcustomer = (Customer)Kundeoversigt_DataGrid.SelectedItem;
-            win1.KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(Selectedcustomer);
             
-            win1.KundeNavn_Label.Content = Selectedcustomer.Firstname + " " + Selectedcustomer.Lastname + "'s Konti";
-            win1.UserID_TextBox.Text = Selectedcustomer.UserID.ToString();
+            if (Selectedcustomer == null)
+            {
+                Kundeoversigt_DataGrid.SelectedIndex = 0;
+                Selectedcustomer = (Customer)Kundeoversigt_DataGrid.SelectedItem;
+            }
+
+            Selectedcustomer = (Customer)Kundeoversigt_DataGrid.SelectedItem;
+            
         }
 
         private void SletKunde_Button_Click(object sender, RoutedEventArgs e)
@@ -85,7 +92,15 @@ namespace H2_Case_Bank
             }
             else
             {
+                MessageBox.Show("Er du sikker på du vil slette denne kunde?", "Bekræft", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                
+                    Selectedcustomer.DeleteCustomer(Selectedcustomer.UserID);
+                    Kundeoversigt_DataGrid.ItemsSource = null;
+                    Kundeoversigt_DataGrid.ItemsSource = cus.ReturnCustomers();
+                
 
+                
+               
             }
         }
     }
