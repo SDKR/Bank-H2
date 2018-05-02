@@ -86,25 +86,28 @@ namespace H2_Case_Bank
 
         public void deleteCustomer(int UserID)
         {
-            /*
-             try
-    {
-    using (SqlConnection con = new SqlConnection(Global.connectionString))
-    {
-         con.Open();
-         using (SqlCommand command = new SqlCommand("DELETE FROM " + table + " WHERE " + columnName + " = '" + IDNumber+"'", con))
-         {
-               command.ExecuteNonQuery();
-         }
-         con.Close();
-    }
-    }
-    catch (SystemException ex)
-       {
-       MessageBox.Show(string.Format("An error occurred: {0}", ex.Message));
-       }
-    }
-             * */
+            using (SqlConnection connection = new SqlConnection(DatabaseLogin.constring))
+            {
+                using (SqlCommand command = new SqlCommand("DELETE FROM Customer WHERE PK_ID = " + UserID, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        // error here
+                        Console.WriteLine("Create account Error");
+                        Console.WriteLine(e);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+            
         }
 
     }
