@@ -14,7 +14,9 @@ namespace H2_Case_Bank
     {
         NumberFormatInfo remove2 = new NumberFormatInfo();
         
-
+        /*
+         * Get all accounts and return as List 
+         * */
         public List<Account> getAccounts(int custumerID)
         {
             ////remove2.CurrencyDecimalDigits = 2;
@@ -57,6 +59,9 @@ namespace H2_Case_Bank
             return empList;
         }
 
+        /*
+         * Create new account 
+         */
         public void createAccount(Account acc)
         {
             using (SqlConnection connection = new SqlConnection(DatabaseLogin.constring))
@@ -97,6 +102,9 @@ namespace H2_Case_Bank
             }
         }
 
+        /*
+         * Withdraw money from account
+         */
         public void Withdraw(int accountnumber, decimal transaction)
         {
 
@@ -136,8 +144,14 @@ namespace H2_Case_Bank
                 MessageBox.Show($"Failed to withdraw. Error message: {e.Message}");
             }
 
+            // create transaction entry
+            transactionentry(accountnumber, transaction);
+
         }
 
+        /*
+         * Deposit money into account
+         */
         public void deposit(int accountnumber, decimal transaction)
         {
             // Get account balance
@@ -174,6 +188,52 @@ namespace H2_Case_Bank
             catch (Exception e)
             {
                 MessageBox.Show($"Failed to deposit. Error message: {e.Message}");
+            }
+
+            // create transaction entry
+            transactionentry(accountnumber, transaction);
+
+        }
+
+        public void transactionentry(int accountnumber, decimal transaction)
+        {
+            // create new transaction entry 
+            using (SqlConnection connection = new SqlConnection(DatabaseLogin.constring))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+
+                    // Creates todays date for fussy Mr. database
+                    String formatsdate = @"MM\/dd\/yyyy HH:mm";
+                    //DateTime thisDate = new DateTime();
+                    DateTime localDate = DateTime.Now;
+                    var cultureInfo = new CultureInfo("fr-FR");
+                    string today = localDate.ToString(formatsdate);
+
+                    command.Connection = connection;            // <== lacking
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT into Transactions (FromAccount, ToAccount, TransactionDate, Amount, FK_AccountID) VALUES (@FromAccount, @ToAccount, @TransactionDate, @Amount, @FK_AccountID)";
+                    command.Parameters.AddWithValue("@FromAccount", accountnumber);
+                    command.Parameters.AddWithValue("@ToAccount", 0);
+                    command.Parameters.AddWithValue("@TransactionDate", today);
+                    command.Parameters.AddWithValue("@Amount", transaction);
+                    command.Parameters.AddWithValue("@FK_AccountID", accountnumber);
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        // error here
+                        Console.WriteLine("CreateCustomer Error");
+                        Console.WriteLine(e);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
             }
         }
 
