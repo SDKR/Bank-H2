@@ -25,7 +25,7 @@ namespace H2_Case_Bank
 
         public void deleteAccount(Account acc)
         {
-            DBA.createAccount(acc);
+            DBA.deleteAccount(acc);
         }
 
         public List<Account> getCustomerAccounts(Customer cus)

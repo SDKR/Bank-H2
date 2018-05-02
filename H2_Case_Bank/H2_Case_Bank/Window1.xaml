@@ -84,7 +84,7 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="267,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" x:Name="UserID_TextBox" IsEnabled="False"/>
         <Label Content="Konto nr." HorizontalAlignment="Left" Margin="623,86,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="Aktion_Label_Copy"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="860,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" x:Name="KontoNR_TextBox" IsEnabled="False"/>
-        <Button Content="Slet Konto" HorizontalAlignment="Left" Margin="30,689,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="SletKonto_Button" Background="#FF316BB3" Foreground="White"/>
+        <Button Content="Slet Konto" HorizontalAlignment="Left" Margin="30,689,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="SletKonto_Button" Background="#FF316BB3" Foreground="White" Click="SletKonto_Button_Click"/>
 
     </Grid>
 </Window>

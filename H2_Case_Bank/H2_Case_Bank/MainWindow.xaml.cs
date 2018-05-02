@@ -73,14 +73,14 @@ namespace H2_Case_Bank
 
         private void Kundeoversigt_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            Selectedcustomer = (Customer)Kundeoversigt_DataGrid.SelectedItem;
             if (Selectedcustomer == null)
             {
                 Kundeoversigt_DataGrid.SelectedIndex = 0;
                 Selectedcustomer = (Customer)Kundeoversigt_DataGrid.SelectedItem;
             }
 
-            Selectedcustomer = (Customer)Kundeoversigt_DataGrid.SelectedItem;
+            
             
         }
 
@@ -92,13 +92,11 @@ namespace H2_Case_Bank
             }
             else
             {
-                MessageBox.Show("Er du sikker på du vil slette denne kunde?", "Bekræft", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                //MessageBox.Show("Er du sikker på du vil slette denne kunde?", "Bekræft", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 
                     Selectedcustomer.DeleteCustomer(Selectedcustomer.UserID);
-                    Kundeoversigt_DataGrid.ItemsSource = null;
+                    //Kundeoversigt_DataGrid.ItemsSource = null;
                     Kundeoversigt_DataGrid.ItemsSource = cus.ReturnCustomers();
-                
-
                 
                
             }

@@ -62,7 +62,11 @@ namespace H2_Case_Bank
             if (Aktion_ComboBox.SelectedIndex == 0)
             {
                 //Indsæt
-                
+                SelectedAccount.Deposit(int.Parse(KontoNR_TextBox.Text), decimal.Parse(Beløb_TextBox.Text));
+                Transaktion_DataGrid.ItemsSource = null;
+
+                cus.UserID = int.Parse(UserID_TextBox.Text);
+                KundeNavn_DataGrid.ItemsSource = SelectedAccount.getCustomerAccounts(cus);
             }
 
             else if (Aktion_ComboBox.SelectedIndex == 1)
@@ -71,14 +75,6 @@ namespace H2_Case_Bank
                 SelectedAccount.Withdraw(int.Parse(KontoNR_TextBox.Text), decimal.Parse(Beløb_TextBox.Text));
 
                 Transaktion_DataGrid.ItemsSource = null;
-<<<<<<< HEAD
-=======
-                //KundeNavn_DataGrid.ItemsSource = null;
-                //SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
-
-                //cus.UserID = int.Parse(UserID_TextBox.Text);
-                //KundeNavn_DataGrid.ItemsSource = SelectedAccount.getCustomerAccounts(cus);
->>>>>>> f88032998d3cc662c2f398a88af635c3f082b30c
 
                 cus.UserID = int.Parse(UserID_TextBox.Text);
                 KundeNavn_DataGrid.ItemsSource = SelectedAccount.getCustomerAccounts(cus);
@@ -128,13 +124,14 @@ namespace H2_Case_Bank
         {
 
             // IF Selected account is null select first item on list
-            SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
+             SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
             if (SelectedAccount == null)
             {
                 KundeNavn_DataGrid.SelectedIndex = 0;
                 SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
             }
 
+           
             //SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
 
             Transaktion_DataGrid.ItemsSource = trans.getTransactions(SelectedAccount);
@@ -156,6 +153,16 @@ namespace H2_Case_Bank
 
             cus.UserID = int.Parse(UserID_TextBox.Text);
             KundeNavn_DataGrid.ItemsSource = null;
+            KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(cus);
+        }
+
+        private void SletKonto_Button_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
+            SelectedAccount.deleteAccount(SelectedAccount);
+
+            cus.UserID = int.Parse(UserID_TextBox.Text);
+            //KundeNavn_DataGrid.ItemsSource = null;
             KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(cus);
         }
     }
