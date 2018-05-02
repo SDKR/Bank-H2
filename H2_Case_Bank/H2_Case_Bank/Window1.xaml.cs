@@ -75,9 +75,7 @@ namespace H2_Case_Bank
                 //SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
                 //cus.UserID = int.Parse(UserID_TextBox.Text);
                 //KundeNavn_DataGrid.ItemsSource = SelectedAccount.getCustomerAccounts(cus);
-                this.Close();
-                Window1 win1 = new Window1();
-                win1.Show();
+
             }
             
         }
