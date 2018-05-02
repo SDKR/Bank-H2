@@ -26,16 +26,6 @@ namespace H2_Case_Bank
             //Delete Customer
         }
 
-        public void CreateAccount(string firstname, string lastname)
-        {
-            // Do something
-        }
-
-        public void CreateAccount(int Accountnumber, string AccountType, float Interest, float Balance, DateTime Dato)
-        {
-            // Gør noget for fanden!
-        }
-
         public List<Customer> ReturnCustomers()
         {
             List<Customer> cslist = DBC.returnCustomers();
