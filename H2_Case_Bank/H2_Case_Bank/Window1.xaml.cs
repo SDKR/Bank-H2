@@ -92,19 +92,19 @@ namespace H2_Case_Bank
         {
             if (KontoType_Combobox.SelectedIndex == 0)
             {
-                Rente_TextBox.Text = "0.80";
+                Rente_TextBox.Text = "0,80";
             }
             else if (KontoType_Combobox.SelectedIndex == 1)
             {
-                Rente_TextBox.Text = "1.12";
+                Rente_TextBox.Text = "1,12";
             }
             else if (KontoType_Combobox.SelectedIndex == 2)
             {
-                Rente_TextBox.Text = "0.52";
+                Rente_TextBox.Text = "0,52";
             }
             else if (KontoType_Combobox.SelectedIndex == 3)
             {
-                Rente_TextBox.Text = "2.07";
+                Rente_TextBox.Text = "2,07";
             }
         }
         private void UdførButton_content()
@@ -123,12 +123,15 @@ namespace H2_Case_Bank
         private void KundeNavn_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            // IF Selected account is null select first item on list
-             SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
-            if (SelectedAccount == null)
+            if (KundeNavn_DataGrid.Items.Count != 0)
             {
-                KundeNavn_DataGrid.SelectedIndex = 0;
+                // IF Selected account is null select first item on list
                 SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
+                if (SelectedAccount == null)
+                {
+                    KundeNavn_DataGrid.SelectedIndex = 0;
+                    SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
+                }
             }
 
            
@@ -136,7 +139,7 @@ namespace H2_Case_Bank
 
             Transaktion_DataGrid.ItemsSource = trans.getTransactions(SelectedAccount);
             
-            Transaktion_Label.Content = "Overførelser (" + SelectedAccount.Accountnumber + ")";
+            Transaktion_Label.Content = "Overførelser (Konto nr. " + SelectedAccount.Accountnumber + ")";
 
             KontoNR_TextBox.Text = SelectedAccount.Accountnumber.ToString();
            
@@ -145,7 +148,7 @@ namespace H2_Case_Bank
         private void Opret_Button_Click(object sender, RoutedEventArgs e)
         {
             CreateAccount.Accounttype = KontoType_Combobox.Text;
-            CreateAccount.Interest = decimal.Parse(Rente_TextBox.Text);
+            CreateAccount.Interest = Convert.ToDecimal(Rente_TextBox.Text);
             CreateAccount.Balance = decimal.Parse(Balance_TextBox.Text);
             CreateAccount.FK_CustomerID = int.Parse(UserID_TextBox.Text);
 
@@ -158,12 +161,44 @@ namespace H2_Case_Bank
 
         private void SletKonto_Button_Click(object sender, RoutedEventArgs e)
         {
-            SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
-            SelectedAccount.deleteAccount(SelectedAccount);
+            if (SelectedAccount.Accounttype == null)
+            {
+                MessageBox.Show("Vælg en konto", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (SelectedAccount.Accounttype != null)
+            {
+                MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette denne Konto: " + SelectedAccount.Accountnumber + "?", "Bekræft", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
 
-            cus.UserID = int.Parse(UserID_TextBox.Text);
-            //KundeNavn_DataGrid.ItemsSource = null;
-            KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(cus);
+                        MessageBox.Show(SelectedAccount.Accountnumber + " er nu slettet fra databasen", "Succeded", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
+                        SelectedAccount.deleteAccount(SelectedAccount);
+
+                        cus.UserID = int.Parse(UserID_TextBox.Text);
+                        //KundeNavn_DataGrid.ItemsSource = null;
+                        KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(cus);
+                        break;
+
+                    case MessageBoxResult.No:
+
+                        break;
+                }
+
+                
+            }
+            
+        }
+
+        private void Balance_TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (!Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) & e.Key != Key.Back | e.Key == Key.Space)
+            {
+                e.Handled = true;
+                MessageBox.Show("Balancen kan kun bestå af tal.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

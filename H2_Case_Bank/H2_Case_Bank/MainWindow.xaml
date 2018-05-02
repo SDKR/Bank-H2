@@ -13,16 +13,13 @@
                 <GradientStop Color="#FF476382" Offset="0.995"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <DataGrid HorizontalAlignment="Left" Height="609" Margin="39,71,0,0" VerticalAlignment="Top" Width="741" Name="Kundeoversigt_DataGrid" MouseDoubleClick="Kundeoversigt_DataGrid_MouseDoubleClick" SelectionChanged="Kundeoversigt_DataGrid_SelectionChanged">
-           
-        </DataGrid>
-        <Button Content="Slet Kunde" HorizontalAlignment="Left" Margin="39,699,0,0" VerticalAlignment="Top" Width="109" Height="39" Background="#FF316BB3" Foreground="White" Name="SletKunde_Button" Click="SletKunde_Button_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="164,699,0,0" VerticalAlignment="Top" Width="109" Height="39" Background="#FF316BB3" Foreground="White"/>
+        <DataGrid HorizontalAlignment="Left" Height="609" Margin="39,71,0,0" VerticalAlignment="Top" Width="741" Name="Kundeoversigt_DataGrid" MouseDoubleClick="Kundeoversigt_DataGrid_MouseDoubleClick" SelectionChanged="Kundeoversigt_DataGrid_SelectionChanged" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand"/>
+        <Button Content="Slet Kunde" HorizontalAlignment="Left" Margin="39,699,0,0" VerticalAlignment="Top" Width="109" Height="39" Background="#FF316BB3" Foreground="White" Name="SletKunde_Button" Click="SletKunde_Button_Click" FontWeight="Bold" Cursor="Hand"/>
         <Label Content="Fornavn" HorizontalAlignment="Left" Margin="817,90,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" Name="Fornavn_Label"/>
         <Label Content="Efternavn" HorizontalAlignment="Left" Margin="817,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.083,0.026" Foreground="#FF144AE0" Name="Efternavn_Label"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="919,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="235" Name="Fornavn_TextBox" PreviewKeyDown="Fornavn_TextBox_PreviewKeyDown"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="919,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="235" Name="Efternavn_TextBox" PreviewKeyDown="Efternavn_TextBox_PreviewKeyDown"/>
-        <Button Content="Opret" HorizontalAlignment="Left" Margin="1045,162,0,0" VerticalAlignment="Top" Width="109" Height="39" Name="Opret_Button" Background="#FF316BB3" Foreground="White" Click="Opret_Button_Click"/>
+        <Button Content="Opret" HorizontalAlignment="Left" Margin="1045,162,0,0" VerticalAlignment="Top" Width="109" Height="39" Name="Opret_Button" Background="#FF316BB3" Foreground="White" Click="Opret_Button_Click" FontWeight="Bold" Cursor="Hand"/>
         <Label Content="Kundeoversigt" HorizontalAlignment="Left" Margin="39,29,0,0" VerticalAlignment="Top" Width="741" Foreground="White" FontWeight="Bold" FontSize="24">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
