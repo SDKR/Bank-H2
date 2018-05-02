@@ -103,6 +103,59 @@ namespace H2_Case_Bank
         }
 
         /*
+         * Delete account  
+        */
+        public void deleteAccount(Account acc)
+        {
+            // Delte transactions 
+            using (SqlConnection connection = new SqlConnection(DatabaseLogin.constring))
+            {
+                using (SqlCommand command = new SqlCommand("DELETE FROM Transactions WHERE FK_AccountID = " + acc.Accountnumber, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        // error here
+                        Console.WriteLine("Delete account Transaction Error");
+                        Console.WriteLine(e);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+            // Delte account 
+            using (SqlConnection connection = new SqlConnection(DatabaseLogin.constring))
+            {
+                using (SqlCommand command = new SqlCommand("DELETE FROM Account WHERE PK_Accountnumber = " + acc.Accountnumber, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        // error here
+                        Console.WriteLine("Delete account Error");
+                        Console.WriteLine(e);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+
+        /*
          * Withdraw money from account
          */
         public void Withdraw(int accountnumber, decimal transaction)

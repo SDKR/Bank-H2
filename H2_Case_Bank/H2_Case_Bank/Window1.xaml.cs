@@ -71,6 +71,14 @@ namespace H2_Case_Bank
                 SelectedAccount.Withdraw(int.Parse(KontoNR_TextBox.Text), decimal.Parse(Beløb_TextBox.Text));
 
                 Transaktion_DataGrid.ItemsSource = null;
+<<<<<<< HEAD
+=======
+                //KundeNavn_DataGrid.ItemsSource = null;
+                //SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
+
+                //cus.UserID = int.Parse(UserID_TextBox.Text);
+                //KundeNavn_DataGrid.ItemsSource = SelectedAccount.getCustomerAccounts(cus);
+>>>>>>> f88032998d3cc662c2f398a88af635c3f082b30c
 
                 cus.UserID = int.Parse(UserID_TextBox.Text);
                 KundeNavn_DataGrid.ItemsSource = SelectedAccount.getCustomerAccounts(cus);
