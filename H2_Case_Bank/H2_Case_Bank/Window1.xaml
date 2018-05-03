@@ -13,7 +13,16 @@
                 <GradientStop Color="#FF476382" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <DataGrid HorizontalAlignment="Left" Height="396" Margin="30,279,0,0" VerticalAlignment="Top" Width="532" Name="KundeNavn_DataGrid" SelectionChanged="KundeNavn_DataGrid_SelectionChanged"/>
+        <DataGrid HorizontalAlignment="Left" Height="396" Margin="30,279,0,0" VerticalAlignment="Top" Width="532" Name="KundeNavn_DataGrid" SelectionChanged="KundeNavn_DataGrid_SelectionChanged" ItemsSource="{Binding getCustomerAccounts}" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand">
+             <DataGrid.Columns>
+                <DataGridTextColumn Header="Konto nr." Binding="{Binding Accountnumber}"/>
+                <DataGridTextColumn Header="Saldo" Binding="{Binding Balance}"/>
+                <DataGridTextColumn Header="Konto Type" Binding="{Binding Accounttype}"/>
+                <DataGridTextColumn Header="Rente" Binding="{Binding Interest}"/>
+                <DataGridTextColumn Header="Opretelses Dato" Binding="{Binding AccountCreation}"/>
+                 
+            </DataGrid.Columns>
+            </DataGrid>
         <Label Content="(Kundenavn)" HorizontalAlignment="Left" Margin="30,237,0,0" VerticalAlignment="Top" Width="532" Foreground="White" FontWeight="Bold" FontSize="24" Name="KundeNavn_Label" Height="41">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -22,7 +31,14 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <DataGrid HorizontalAlignment="Left" Height="396" Margin="623,279,0,0" VerticalAlignment="Top" Width="532" Name="Transaktion_DataGrid"/>
+        <DataGrid HorizontalAlignment="Left" Height="396" Margin="623,279,0,0" VerticalAlignment="Top" Width="532" Name="Transaktion_DataGrid" ItemsSource="{Binding getTransactions}" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Overførelses nr." Binding="{Binding TransactionID}"/>
+                <DataGridTextColumn Header="Beløb" Binding="{Binding Amount}"/>
+                <DataGridTextColumn Header="Overførelses Dato" Binding="{Binding Date}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
         <Label Content="Overførelser" HorizontalAlignment="Left" Margin="623,237,0,0" VerticalAlignment="Top" Width="532" Foreground="White" FontWeight="Bold" FontSize="24" Name="Transaktion_Label">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -31,7 +47,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="860,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Beløb_TextBox" PreviewKeyDown="Beløb_TextBox_PreviewKeyDown"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="860,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Beløb_TextBox" PreviewKeyDown="Beløb_TextBox_PreviewKeyDown"/>
         <Label Content="Aktion" HorizontalAlignment="Left" Margin="623,108,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="Aktion_Label"/>
         <Label Content="Indsæt/Udbetal" HorizontalAlignment="Left" Margin="623,29,0,0" VerticalAlignment="Top" Width="532" Foreground="White" FontWeight="Bold" FontSize="24">
             <Label.Background>
@@ -42,7 +58,7 @@
             </Label.Background>
         </Label>
         <Label Content="Beløb" HorizontalAlignment="Left" Margin="623,134,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="Beløb_Label"/>
-        <ComboBox HorizontalAlignment="Left" Margin="860,110,0,0" VerticalAlignment="Top" Width="295"  Name="Aktion_ComboBox" DropDownClosed="Aktion_ComboBox_DropDownClosed">
+        <ComboBox HorizontalAlignment="Left" Margin="860,108,0,0" VerticalAlignment="Top" Width="295"  Name="Aktion_ComboBox" DropDownClosed="Aktion_ComboBox_DropDownClosed" Cursor="Hand">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -52,9 +68,9 @@
             <ComboBoxItem IsSelected="True" Content="Indsæt"/>
             <ComboBoxItem Content="Udbetal"/>
         </ComboBox>
-        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="1046,689,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Tilbage_Button" Background="#FF316BB3" Foreground="White" Click="Tilbage_Button_Click"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="1046,689,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Tilbage_Button" Background="#FF316BB3" Foreground="White" Click="Tilbage_Button_Click" FontWeight="Bold" Cursor="Hand"/>
         <Label Content="Konto Type" HorizontalAlignment="Left" Margin="30,108,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label"/>
-        <ComboBox HorizontalAlignment="Left" Margin="267,110,0,0" VerticalAlignment="Top" Width="295" x:Name="KontoType_Combobox" DropDownClosed="KontoType_Combobox_DropDownClosed">
+        <ComboBox HorizontalAlignment="Left" Margin="267,108,0,0" VerticalAlignment="Top" Width="295" x:Name="KontoType_Combobox" DropDownClosed="KontoType_Combobox_DropDownClosed" Cursor="Hand">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -74,16 +90,17 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="267,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Rente_TextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="267,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Rente_TextBox"/>
         <Label Content="Rente" HorizontalAlignment="Left" Margin="30,134,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label_Copy"/>
         <Label Content="Balance" HorizontalAlignment="Left" Margin="30,160,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label_Copy1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="267,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Balance_TextBox"/>
-        <Button HorizontalAlignment="Left" Margin="1046,165,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Udfør_Button" Background="#FF316BB3" Foreground="White" Click="Udfør_Button_Click"/>
-        <Button Content="Opret" HorizontalAlignment="Left" Margin="453,193,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Opret_Button" Background="#FF316BB3" Foreground="White" Click="Opret_Button_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="267,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Balance_TextBox" PreviewKeyDown="Balance_TextBox_PreviewKeyDown"/>
+        <Button HorizontalAlignment="Left" Margin="1046,193,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Udfør_Button" Background="#FF316BB3" Foreground="White" Click="Udfør_Button_Click" FontWeight="Bold" Cursor="Hand"/>
+        <Button Content="Opret" HorizontalAlignment="Left" Margin="453,193,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Opret_Button" Background="#FF316BB3" Foreground="White" Click="Opret_Button_Click" FontWeight="Bold" Cursor="Hand"/>
         <Label Content="User ID" HorizontalAlignment="Left" Margin="30,82,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label_Copy2"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="267,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" x:Name="UserID_TextBox" IsEnabled="False"/>
-        <Label Content="Konto nr." HorizontalAlignment="Left" Margin="623,86,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="Aktion_Label_Copy"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="860,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" x:Name="KontoNR_TextBox" IsEnabled="False"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="267,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" x:Name="UserID_TextBox" IsEnabled="False"/>
+        <Label Content="Konto nr." HorizontalAlignment="Left" Margin="623,82,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="Aktion_Label_Copy"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="860,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" x:Name="KontoNR_TextBox" IsEnabled="False"/>
+        <Button Content="Slet Konto" HorizontalAlignment="Left" Margin="30,689,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="SletKonto_Button" Background="#FF316BB3" Foreground="White" Click="SletKonto_Button_Click" FontWeight="Bold" Cursor="Hand"/>
 
     </Grid>
 </Window>

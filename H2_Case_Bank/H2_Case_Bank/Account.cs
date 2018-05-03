@@ -23,6 +23,11 @@ namespace H2_Case_Bank
             DBA.createAccount(acc);
         }
 
+        public void deleteAccount(Account acc)
+        {
+            DBA.deleteAccount(acc);
+        }
+
         public List<Account> getCustomerAccounts(Customer cus)
         {
             return DBA.getAccounts(cus.UserID);

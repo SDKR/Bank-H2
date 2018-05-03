@@ -42,14 +42,19 @@ namespace H2_Case_Bank
 
             for (int i = 0; i < empList.Count; i++)
             {
+<<<<<<< HEAD
 
                 decimal test = empList[i].Balance;
                 test = Math.Round(, 2);
+=======
+                decimal decimal2 = Decimal.Round(empList[i].Balance);
+                Console.WriteLine(decimal2);
+>>>>>>> 43f825feb5cc7d9a691ea63b3f7dd6620ebd1ebb
 
                 Console.WriteLine(empList[i].Accountnumber);
                 Console.WriteLine(empList[i].Accounttype);
                 Console.WriteLine(empList[i].Interest);
-                Console.WriteLine(empList[i].Balance);
+                Console.WriteLine(decimal2);
                 Console.WriteLine(empList[i].AccountCreation);
                 Console.WriteLine(empList[i].FK_CustomerID);
                 Console.WriteLine();
@@ -104,6 +109,59 @@ namespace H2_Case_Bank
                     }
                 }
             }
+        }
+
+        /*
+         * Delete account  
+        */
+        public void deleteAccount(Account acc)
+        {
+            // Delte transactions 
+            using (SqlConnection connection = new SqlConnection(DatabaseLogin.constring))
+            {
+                using (SqlCommand command = new SqlCommand("DELETE FROM Transactions WHERE FK_AccountID = " + acc.Accountnumber, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        // error here
+                        Console.WriteLine("Delete account Transaction Error");
+                        Console.WriteLine(e);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+            // Delte account 
+            using (SqlConnection connection = new SqlConnection(DatabaseLogin.constring))
+            {
+                using (SqlCommand command = new SqlCommand("DELETE FROM Account WHERE PK_Accountnumber = " + acc.Accountnumber, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        // error here
+                        Console.WriteLine("Delete account Error");
+                        Console.WriteLine(e);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
         }
 
         /*
