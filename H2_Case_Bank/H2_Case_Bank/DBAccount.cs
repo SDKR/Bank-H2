@@ -42,10 +42,13 @@ namespace H2_Case_Bank
 
             for (int i = 0; i < empList.Count; i++)
             {
+                decimal decimal2 = Decimal.Round(empList[i].Balance);
+                Console.WriteLine(decimal2);
+
                 Console.WriteLine(empList[i].Accountnumber);
                 Console.WriteLine(empList[i].Accounttype);
                 Console.WriteLine(empList[i].Interest);
-                Console.WriteLine(empList[i].Balance);
+                Console.WriteLine(decimal2);
                 Console.WriteLine(empList[i].AccountCreation);
                 Console.WriteLine(empList[i].FK_CustomerID);
                 Console.WriteLine();
