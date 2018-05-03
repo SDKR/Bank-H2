@@ -180,6 +180,11 @@ namespace H2_Case_Bank
             // Make balance calculation
             currBalance = currBalance - transaction;
 
+            // add -
+            string temp = transaction.ToString();
+            temp = "-" + temp;
+            transaction = Convert.ToDecimal(temp);
+
             // Update balance 
             var sql = "UPDATE Account SET Balance = @Balance where PK_Accountnumber = @PK_Accountnumber";
             try
