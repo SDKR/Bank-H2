@@ -68,3 +68,19 @@ C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Cas
 C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.exe
 C:\Users\Tec\Documents\GitHub\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.pdb
 >>>>>>> b65abe6f78736c0be2754afa114a9c08140b0c44
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\bin\Debug\H2_Case_Bank.exe.config
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.exe
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.pdb
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.csprojResolveAssemblyReference.cache
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\MainWindow.g.cs
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\Window1.g.cs
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\App.g.cs
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank_MarkupCompile.cache
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank_MarkupCompile.lref
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\bin\Debug\H2_Case_Bank.exe
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\bin\Debug\H2_Case_Bank.pdb
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\MainWindow.baml
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\Window1.baml
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.g.resources
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.Properties.Resources.resources
+C:\Users\Emil\Documents\GitHub\BankApp\Bank-H2\H2_Case_Bank\H2_Case_Bank\obj\Debug\H2_Case_Bank.csproj.GenerateResource.Cache
