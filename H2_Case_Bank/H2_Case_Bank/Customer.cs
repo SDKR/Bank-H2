@@ -22,14 +22,9 @@ namespace H2_Case_Bank
         }
         public void DeleteCustomer(int UserID)
         {
-<<<<<<< HEAD
             DBC.deleteCustomer(UserID);
         }
-=======
-            //Delete Customer
-        }
 
->>>>>>> 9a324aa29cb12ce4d4e4438ca5f300ed8b719c6f
         public List<Customer> ReturnCustomers()
         {
             List<Customer> cslist = DBC.returnCustomers();

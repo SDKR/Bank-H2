@@ -42,6 +42,10 @@ namespace H2_Case_Bank
 
             for (int i = 0; i < empList.Count; i++)
             {
+
+                decimal test = empList[i].Balance;
+                test = Math.Round(, 2);
+
                 Console.WriteLine(empList[i].Accountnumber);
                 Console.WriteLine(empList[i].Accounttype);
                 Console.WriteLine(empList[i].Interest);
