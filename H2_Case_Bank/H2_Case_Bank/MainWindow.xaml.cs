@@ -92,13 +92,25 @@ namespace H2_Case_Bank
             }
             else
             {
-                //MessageBox.Show("Er du sikker på du vil slette denne kunde?", "Bekræft", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                
-                    Selectedcustomer.DeleteCustomer(Selectedcustomer.UserID);
-                    //Kundeoversigt_DataGrid.ItemsSource = null;
-                    Kundeoversigt_DataGrid.ItemsSource = cus.ReturnCustomers();
-                
                
+                MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette " + Selectedcustomer.Firstname + " " + Selectedcustomer.Lastname + " som kunde?", "Bekræft", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+
+                        MessageBox.Show(Selectedcustomer.Firstname + " " + Selectedcustomer.Lastname + " er nu slettet fra databasen", "Succeded", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        Selectedcustomer.DeleteCustomer(Selectedcustomer.UserID);
+                        Kundeoversigt_DataGrid.ItemsSource = cus.ReturnCustomers();
+                        break;
+
+                    case MessageBoxResult.No:
+
+                        break;
+                }
+
+
+
             }
         }
     }
