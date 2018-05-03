@@ -113,5 +113,17 @@ namespace H2_Case_Bank
 
             }
         }
+
+        private void Search_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            string search = Search_TextBox.Text;
+
+            List<Customer> Find = cus.ReturnCustomers().Where(Customer => Customer.Firstname.ToLower().StartsWith(Search_TextBox.Text.ToLower()) || Customer.Lastname.ToLower().StartsWith(Search_TextBox.Text.ToLower())).ToList();
+
+            Kundeoversigt_DataGrid.ItemsSource = Find;
+
+          
+        }
     }
 }
