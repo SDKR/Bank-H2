@@ -13,7 +13,15 @@
                 <GradientStop Color="#FF476382" Offset="0.995"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <DataGrid HorizontalAlignment="Left" Height="561" Margin="47,100,0,0" VerticalAlignment="Top" Width="741" Name="Kundeoversigt_DataGrid" MouseDoubleClick="Kundeoversigt_DataGrid_MouseDoubleClick" SelectionChanged="Kundeoversigt_DataGrid_SelectionChanged" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand"/>
+        <DataGrid HorizontalAlignment="Left" Height="561" Margin="47,100,0,0" VerticalAlignment="Top" Width="741" Name="Kundeoversigt_DataGrid" MouseDoubleClick="Kundeoversigt_DataGrid_MouseDoubleClick" SelectionChanged="Kundeoversigt_DataGrid_SelectionChanged" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand" ItemsSource="{Binding ReturnCustomers}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Kunde ID" Binding="{Binding UserID}"/>
+                <DataGridTextColumn Header="Fornavn" Binding="{Binding Firstname}"/>
+                <DataGridTextColumn Header="Efternavn" Binding="{Binding Lastname}"/>
+                <DataGridTextColumn Header="Opretelses Dato" Binding="{Binding CreationDate}" Width="*"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Slet Kunde" HorizontalAlignment="Left" Margin="39,699,0,0" VerticalAlignment="Top" Width="109" Height="39" Background="#FF316BB3" Foreground="White" Name="SletKunde_Button" Click="SletKunde_Button_Click" FontWeight="Bold" Cursor="Hand"/>
         <Label Content="Fornavn" HorizontalAlignment="Left" Margin="825,119,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" Name="Fornavn_Label"/>
         <Label Content="Efternavn" HorizontalAlignment="Left" Margin="825,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.083,0.026" Foreground="#FF144AE0" Name="Efternavn_Label"/>
