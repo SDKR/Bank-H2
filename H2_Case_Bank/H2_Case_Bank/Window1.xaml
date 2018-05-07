@@ -16,10 +16,10 @@
         <DataGrid HorizontalAlignment="Left" Height="396" Margin="30,279,0,0" VerticalAlignment="Top" Width="532" Name="KundeNavn_DataGrid" SelectionChanged="KundeNavn_DataGrid_SelectionChanged" ItemsSource="{Binding getCustomerAccounts}" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand">
              <DataGrid.Columns>
                 <DataGridTextColumn Header="Konto nr." Binding="{Binding Accountnumber}"/>
-                <DataGridTextColumn Header="Saldo" Binding="{Binding Balance}"/>
+                <DataGridTextColumn Header="Saldo" Binding="{Binding Balance, StringFormat=c, ConverterCulture='dk-DK'}"/>
                 <DataGridTextColumn Header="Konto Type" Binding="{Binding Accounttype}"/>
                 <DataGridTextColumn Header="Rente" Binding="{Binding Interest}"/>
-                <DataGridTextColumn Header="Opretelses Dato" Binding="{Binding AccountCreation}"/>
+                <DataGridTextColumn Header="Opretelses Dato" Binding="{Binding AccountCreation}" Width="*"/>
                  
             </DataGrid.Columns>
             </DataGrid>
@@ -34,9 +34,31 @@
         <DataGrid HorizontalAlignment="Left" Height="396" Margin="623,279,0,0" VerticalAlignment="Top" Width="532" Name="Transaktion_DataGrid" ItemsSource="{Binding getTransactions}" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Overførelses nr." Binding="{Binding TransactionID}"/>
-                <DataGridTextColumn Header="Beløb" Binding="{Binding Amount}"/>
-                <DataGridTextColumn Header="Overførelses Dato" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Beløb" Binding="{Binding Amount, StringFormat=c, ConverterCulture='dk-DK' }">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding posnegbool}"  Value="false">
+                                    <Setter Property="Foreground" Value="Red"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding posnegbool}"  Value="true">
+                                    <Setter Property="Foreground" Value="Green"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Overførelses Dato" Binding="{Binding Date}"  Width="*"/>
+                
+                <!--<DataGridTextColumn Header="Overførelses nr." Binding="{Binding TransactionID}" />
+                <DataGridTextColumn Header="posnegbool." Binding="{Binding posnegbool}" />
+                <DataGridTextColumn Header="Beløb" Binding="{Binding Amount}">-->
+                    
+                   
+                <!--</DataGridTextColumn>
+                <DataGridTextColumn Header="Overførelses Dato" Binding="{Binding Date}" Width="*">-->
 
+                <!--</DataGridTextColumn>-->
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Overførelser" HorizontalAlignment="Left" Margin="623,237,0,0" VerticalAlignment="Top" Width="532" Foreground="White" FontWeight="Bold" FontSize="24" Name="Transaktion_Label">
@@ -70,7 +92,7 @@
         </ComboBox>
         <Button Content="Tilbage" HorizontalAlignment="Left" Margin="1046,689,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Tilbage_Button" Background="#FF316BB3" Foreground="White" Click="Tilbage_Button_Click" FontWeight="Bold" Cursor="Hand"/>
         <Label Content="Konto Type" HorizontalAlignment="Left" Margin="30,108,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label"/>
-        <ComboBox HorizontalAlignment="Left" Margin="267,108,0,0" VerticalAlignment="Top" Width="295" x:Name="KontoType_Combobox" DropDownClosed="KontoType_Combobox_DropDownClosed" Cursor="Hand">
+        <ComboBox HorizontalAlignment="Left" Margin="267,108,0,0" VerticalAlignment="Top" Width="295" x:Name="KontoType_Combobox" IsEditable="True" DropDownClosed="KontoType_Combobox_DropDownClosed" Cursor="Hand">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -90,10 +112,10 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="267,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Rente_TextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="267,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Rente_TextBox" MaxLength="10"/>
         <Label Content="Rente" HorizontalAlignment="Left" Margin="30,134,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label_Copy"/>
         <Label Content="Balance" HorizontalAlignment="Left" Margin="30,160,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label_Copy1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="267,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Balance_TextBox" PreviewKeyDown="Balance_TextBox_PreviewKeyDown"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="267,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Name="Balance_TextBox" PreviewKeyDown="Balance_TextBox_PreviewKeyDown" MaxLength="13"/>
         <Button HorizontalAlignment="Left" Margin="1046,193,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Udfør_Button" Background="#FF316BB3" Foreground="White" Click="Udfør_Button_Click" FontWeight="Bold" Cursor="Hand"/>
         <Button Content="Opret" HorizontalAlignment="Left" Margin="453,193,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Opret_Button" Background="#FF316BB3" Foreground="White" Click="Opret_Button_Click" FontWeight="Bold" Cursor="Hand"/>
         <Label Content="User ID" HorizontalAlignment="Left" Margin="30,82,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label_Copy2"/>

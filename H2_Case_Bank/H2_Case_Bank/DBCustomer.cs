@@ -12,7 +12,10 @@ namespace H2_Case_Bank
 {
     class DBCustomer
     {
-        //Customer Cus = new Customer();
+        /*
+         * 
+         */
+
         public List<Customer> returnCustomers()
         {
             List<Customer> CusList = new List<Customer>();
@@ -27,6 +30,8 @@ namespace H2_Case_Bank
 
             var empList = ds.Tables[0].AsEnumerable().Select(dataRow => new Customer { UserID = dataRow.Field<int>("PK_ID"), Firstname = dataRow.Field<string>("FirstName"), Lastname = dataRow.Field<string>("LastName"), CreationDate = dataRow.Field<DateTime>("CreationDate") }).ToList();
 
+            // Debug
+            /*
             for (int i = 0; i < empList.Count; i++)
             {
                 Console.WriteLine(empList[i].UserID);
@@ -35,14 +40,15 @@ namespace H2_Case_Bank
                 Console.WriteLine(empList[i].CreationDate);
                 Console.WriteLine();
             }
+            */
             //Customer Cus = new Customer(ds.Tables[0].Rows[0], );
-
-            // CusList.Add()
-            //Console.WriteLine(ds.GetXml());
-            //string LoginInfo = ds.Tables[0].Rows[0]["Brugertype"].ToString();
 
             return empList;
         }
+
+        /*
+         * Create Customer, takes firstname, lastname
+         */
 
         public void createCustomer(String Firstname, String Lastname)
         {
@@ -83,6 +89,10 @@ namespace H2_Case_Bank
             }
 
         }
+
+        /*
+         * Delete customer with userid x from list
+         */
 
         public void deleteCustomer(int UserID)
         {

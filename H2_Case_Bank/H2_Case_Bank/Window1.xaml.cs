@@ -27,8 +27,8 @@ namespace H2_Case_Bank
         public Window1()
         {
             InitializeComponent();
-            
-            
+            KundeNavn_DataGrid.CanUserAddRows = false;
+            Transaktion_DataGrid.CanUserAddRows = false;
             Rente();
             UdførButton_content();
         }
@@ -75,25 +75,11 @@ namespace H2_Case_Bank
                 SelectedAccount.Withdraw(int.Parse(KontoNR_TextBox.Text), decimal.Parse(Beløb_TextBox.Text));
 
                 Transaktion_DataGrid.ItemsSource = null;
-<<<<<<< HEAD
-                //KundeNavn_DataGrid.ItemsSource = null;
-                //SelectedAccount = (Account)KundeNavn_DataGrid.SelectedItem;
-                //cus.UserID = int.Parse(UserID_TextBox.Text);
-                //KundeNavn_DataGrid.ItemsSource = SelectedAccount.getCustomerAccounts(cus);
-=======
->>>>>>> 43f825feb5cc7d9a691ea63b3f7dd6620ebd1ebb
 
                 cus.UserID = int.Parse(UserID_TextBox.Text);
                 KundeNavn_DataGrid.ItemsSource = SelectedAccount.getCustomerAccounts(cus);
 
-<<<<<<< HEAD
-                /*
-                this.Close();
-                Window1 win1 = new Window1();
-                win1.Show();
-                */
-=======
->>>>>>> 43f825feb5cc7d9a691ea63b3f7dd6620ebd1ebb
+              
             }
             
         }
@@ -107,19 +93,19 @@ namespace H2_Case_Bank
         {
             if (KontoType_Combobox.SelectedIndex == 0)
             {
-                Rente_TextBox.Text = "0,80";
+                Rente_TextBox.Text = "0.80";
             }
             else if (KontoType_Combobox.SelectedIndex == 1)
             {
-                Rente_TextBox.Text = "1,12";
+                Rente_TextBox.Text = "1.12";
             }
             else if (KontoType_Combobox.SelectedIndex == 2)
             {
-                Rente_TextBox.Text = "0,52";
+                Rente_TextBox.Text = "0.52";
             }
             else if (KontoType_Combobox.SelectedIndex == 3)
             {
-                Rente_TextBox.Text = "2,07";
+                Rente_TextBox.Text = "2.07";
             }
         }
         private void UdførButton_content()
@@ -162,16 +148,23 @@ namespace H2_Case_Bank
 
         private void Opret_Button_Click(object sender, RoutedEventArgs e)
         {
-            CreateAccount.Accounttype = KontoType_Combobox.Text;
-            CreateAccount.Interest = Convert.ToDecimal(Rente_TextBox.Text);
-            CreateAccount.Balance = decimal.Parse(Balance_TextBox.Text);
-            CreateAccount.FK_CustomerID = int.Parse(UserID_TextBox.Text);
+            if (Rente_TextBox.Text.Equals(string.Empty) || Balance_TextBox.Text.Equals(string.Empty))
+            {
+                MessageBox.Show("Rente og Balance skal udfuldes.");
+            }
+            else
+            {
+                CreateAccount.Accounttype = KontoType_Combobox.Text;
+                CreateAccount.Interest = Convert.ToDecimal(Rente_TextBox.Text);
+                CreateAccount.Balance = decimal.Parse(Balance_TextBox.Text);
+                CreateAccount.FK_CustomerID = int.Parse(UserID_TextBox.Text);
 
-            CreateAccount.CreateAccount(CreateAccount);
+                CreateAccount.CreateAccount(CreateAccount);
 
-            cus.UserID = int.Parse(UserID_TextBox.Text);
-            KundeNavn_DataGrid.ItemsSource = null;
-            KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(cus);
+                cus.UserID = int.Parse(UserID_TextBox.Text);
+                KundeNavn_DataGrid.ItemsSource = null;
+                KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(cus);
+            }
         }
 
         private void SletKonto_Button_Click(object sender, RoutedEventArgs e)

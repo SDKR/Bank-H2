@@ -40,16 +40,12 @@ namespace H2_Case_Bank
                 FK_CustomerID = dataRow.Field<int>("FK_CustomerID")
             }).ToList();
 
+            // Debug
+            /*
             for (int i = 0; i < empList.Count; i++)
             {
-<<<<<<< HEAD
-
-                decimal test = empList[i].Balance;
-                test = Math.Round(, 2);
-=======
-                decimal decimal2 = Decimal.Round(empList[i].Balance);
+                decimal decimal2 = Decimal.Round(empList[i].Balance, 2, MidpointRounding.AwayFromZero);
                 Console.WriteLine(decimal2);
->>>>>>> 43f825feb5cc7d9a691ea63b3f7dd6620ebd1ebb
 
                 Console.WriteLine(empList[i].Accountnumber);
                 Console.WriteLine(empList[i].Accounttype);
@@ -58,12 +54,7 @@ namespace H2_Case_Bank
                 Console.WriteLine(empList[i].AccountCreation);
                 Console.WriteLine(empList[i].FK_CustomerID);
                 Console.WriteLine();
-            }
-            //Customer Cus = new Customer(ds.Tables[0].Rows[0], );
-
-            // CusList.Add()
-            //Console.WriteLine(ds.GetXml());
-            //string LoginInfo = ds.Tables[0].Rows[0]["Brugertype"].ToString();
+            }*/
 
             return empList;
         }
@@ -184,6 +175,11 @@ namespace H2_Case_Bank
 
             // Make balance calculation
             currBalance = currBalance - transaction;
+
+            // add -
+            string temp = transaction.ToString();
+            temp = "-" + temp;
+            transaction = Convert.ToDecimal(temp);
 
             // Update balance 
             var sql = "UPDATE Account SET Balance = @Balance where PK_Accountnumber = @PK_Accountnumber";
