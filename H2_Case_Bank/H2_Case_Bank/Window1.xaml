@@ -33,28 +33,32 @@
         </Label>
         <DataGrid HorizontalAlignment="Left" Height="396" Margin="623,279,0,0" VerticalAlignment="Top" Width="532" Name="Transaktion_DataGrid" ItemsSource="{Binding getTransactions}" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand">
             <DataGrid.Columns>
-<<<<<<< HEAD
                 <DataGridTextColumn Header="Overførelses nr." Binding="{Binding TransactionID}"/>
-                <DataGridTextColumn Header="Beløb" Binding="{Binding Amount, StringFormat=c, ConverterCulture='dk-DK' }"/>
-                <DataGridTextColumn Header="Overførelses Dato" Binding="{Binding Date}"/>
-
-=======
-                <DataGridTextColumn Header="Overførelses nr." Binding="{Binding TransactionID}" />
-                <DataGridTextColumn Header="Beløb" Binding="{Binding Amount}">
+                <DataGridTextColumn Header="Beløb" Binding="{Binding Amount, StringFormat=c, ConverterCulture='dk-DK' }">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
                             <Style.Triggers>
-                                <Trigger Property="Text"  Value="10">
+                                <DataTrigger Binding="{Binding posnegbool}"  Value="false">
+                                    <Setter Property="Foreground" Value="Red"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding posnegbool}"  Value="true">
                                     <Setter Property="Foreground" Value="Green"/>
-                                </Trigger>
+                                </DataTrigger>
                             </Style.Triggers>
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Overførelses Dato" Binding="{Binding Date}" Width="*">
+                <DataGridTextColumn Header="Overførelses Dato" Binding="{Binding Date}"  Width="*"/>
+                
+                <!--<DataGridTextColumn Header="Overførelses nr." Binding="{Binding TransactionID}" />
+                <DataGridTextColumn Header="posnegbool." Binding="{Binding posnegbool}" />
+                <DataGridTextColumn Header="Beløb" Binding="{Binding Amount}">-->
                     
-                </DataGridTextColumn>
->>>>>>> 3212be5a4e2e950d41a154c55cdd8c870342d665
+                   
+                <!--</DataGridTextColumn>
+                <DataGridTextColumn Header="Overførelses Dato" Binding="{Binding Date}" Width="*">-->
+
+                <!--</DataGridTextColumn>-->
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Overførelser" HorizontalAlignment="Left" Margin="623,237,0,0" VerticalAlignment="Top" Width="532" Foreground="White" FontWeight="Bold" FontSize="24" Name="Transaktion_Label">

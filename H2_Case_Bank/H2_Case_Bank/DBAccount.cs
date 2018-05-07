@@ -40,9 +40,10 @@ namespace H2_Case_Bank
                 FK_CustomerID = dataRow.Field<int>("FK_CustomerID")
             }).ToList();
 
+            // Debug
+            /*
             for (int i = 0; i < empList.Count; i++)
             {
-
                 decimal decimal2 = Decimal.Round(empList[i].Balance, 2, MidpointRounding.AwayFromZero);
                 Console.WriteLine(decimal2);
 
@@ -53,12 +54,7 @@ namespace H2_Case_Bank
                 Console.WriteLine(empList[i].AccountCreation);
                 Console.WriteLine(empList[i].FK_CustomerID);
                 Console.WriteLine();
-            }
-            //Customer Cus = new Customer(ds.Tables[0].Rows[0], );
-
-            // CusList.Add()
-            //Console.WriteLine(ds.GetXml());
-            //string LoginInfo = ds.Tables[0].Rows[0]["Brugertype"].ToString();
+            }*/
 
             return empList;
         }

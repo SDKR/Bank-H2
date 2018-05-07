@@ -32,6 +32,8 @@ namespace H2_Case_Bank
                 FromAccount = dataRow.Field<int>("FK_AccountID"),
             }).ToList();
 
+            //Debug
+            /*
             for (int i = 0; i < empList.Count; i++)
             {
                 Console.WriteLine(empList[i].TransactionID);
@@ -39,12 +41,7 @@ namespace H2_Case_Bank
                 Console.WriteLine(empList[i].Amount);
                 Console.WriteLine(empList[i].FromAccount);
                 Console.WriteLine();
-            }
-            //Customer Cus = new Customer(ds.Tables[0].Rows[0], );
-
-            // CusList.Add()
-            //Console.WriteLine(ds.GetXml());
-            //string LoginInfo = ds.Tables[0].Rows[0]["Brugertype"].ToString();
+            }*/
 
             return empList;
         }
