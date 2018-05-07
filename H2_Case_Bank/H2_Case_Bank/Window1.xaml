@@ -92,7 +92,7 @@
         </ComboBox>
         <Button Content="Tilbage" HorizontalAlignment="Left" Margin="1046,689,0,0" VerticalAlignment="Top" Width="109" Height="39" x:Name="Tilbage_Button" Background="#FF316BB3" Foreground="White" Click="Tilbage_Button_Click" FontWeight="Bold" Cursor="Hand"/>
         <Label Content="Konto Type" HorizontalAlignment="Left" Margin="30,108,0,0" VerticalAlignment="Top" Foreground="#FF144AE0" x:Name="KontoType_Label"/>
-        <ComboBox HorizontalAlignment="Left" Margin="267,108,0,0" VerticalAlignment="Top" Width="295" x:Name="KontoType_Combobox" DropDownClosed="KontoType_Combobox_DropDownClosed" Cursor="Hand">
+        <ComboBox HorizontalAlignment="Left" Margin="267,108,0,0" VerticalAlignment="Top" Width="295" x:Name="KontoType_Combobox" IsEditable="True" DropDownClosed="KontoType_Combobox_DropDownClosed" Cursor="Hand">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>

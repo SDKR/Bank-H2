@@ -28,6 +28,7 @@ namespace H2_Case_Bank
         public MainWindow()
         {
             InitializeComponent();
+            Kundeoversigt_DataGrid.CanUserAddRows = false;
             Kundeoversigt_DataGrid.ItemsSource = cus.ReturnCustomers();
         }
 

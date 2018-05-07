@@ -27,8 +27,8 @@ namespace H2_Case_Bank
         public Window1()
         {
             InitializeComponent();
-            
-            
+            KundeNavn_DataGrid.CanUserAddRows = false;
+            Transaktion_DataGrid.CanUserAddRows = false;
             Rente();
             UdførButton_content();
         }
@@ -148,16 +148,23 @@ namespace H2_Case_Bank
 
         private void Opret_Button_Click(object sender, RoutedEventArgs e)
         {
-            CreateAccount.Accounttype = KontoType_Combobox.Text;
-            CreateAccount.Interest = Convert.ToDecimal(Rente_TextBox.Text);
-            CreateAccount.Balance = decimal.Parse(Balance_TextBox.Text);
-            CreateAccount.FK_CustomerID = int.Parse(UserID_TextBox.Text);
+            if (Rente_TextBox.Text.Equals(string.Empty) || Balance_TextBox.Text.Equals(string.Empty))
+            {
+                MessageBox.Show("Rente og Balance skal udfuldes.");
+            }
+            else
+            {
+                CreateAccount.Accounttype = KontoType_Combobox.Text;
+                CreateAccount.Interest = Convert.ToDecimal(Rente_TextBox.Text);
+                CreateAccount.Balance = decimal.Parse(Balance_TextBox.Text);
+                CreateAccount.FK_CustomerID = int.Parse(UserID_TextBox.Text);
 
-            CreateAccount.CreateAccount(CreateAccount);
+                CreateAccount.CreateAccount(CreateAccount);
 
-            cus.UserID = int.Parse(UserID_TextBox.Text);
-            KundeNavn_DataGrid.ItemsSource = null;
-            KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(cus);
+                cus.UserID = int.Parse(UserID_TextBox.Text);
+                KundeNavn_DataGrid.ItemsSource = null;
+                KundeNavn_DataGrid.ItemsSource = acc.getCustomerAccounts(cus);
+            }
         }
 
         private void SletKonto_Button_Click(object sender, RoutedEventArgs e)

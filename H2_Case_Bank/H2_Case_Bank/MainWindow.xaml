@@ -13,7 +13,7 @@
                 <GradientStop Color="#FF476382" Offset="0.995"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <DataGrid HorizontalAlignment="Left" Height="561" Margin="47,100,0,0" VerticalAlignment="Top" Width="741" Name="Kundeoversigt_DataGrid" MouseDoubleClick="Kundeoversigt_DataGrid_MouseDoubleClick" SelectionChanged="Kundeoversigt_DataGrid_SelectionChanged" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand" ItemsSource="{Binding ReturnCustomers}" AutoGenerateColumns="False">
+        <DataGrid HorizontalAlignment="Left" Height="561" Margin="47,100,0,0" VerticalAlignment="Top" Width="741" Name="Kundeoversigt_DataGrid" IsReadOnly="True" MouseDoubleClick="Kundeoversigt_DataGrid_MouseDoubleClick" SelectionChanged="Kundeoversigt_DataGrid_SelectionChanged" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand" ItemsSource="{Binding ReturnCustomers}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Kunde ID" Binding="{Binding UserID}"/>
                 <DataGridTextColumn Header="Fornavn" Binding="{Binding Firstname}"/>
