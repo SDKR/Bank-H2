@@ -43,7 +43,7 @@ namespace H2_Case_Bank
             for (int i = 0; i < empList.Count; i++)
             {
 
-                decimal decimal2 = Decimal.Round(empList[i].Balance);
+                decimal decimal2 = Decimal.Round(empList[i].Balance, 2, MidpointRounding.AwayFromZero);
                 Console.WriteLine(decimal2);
 
                 Console.WriteLine(empList[i].Accountnumber);

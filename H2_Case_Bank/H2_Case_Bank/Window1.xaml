@@ -16,7 +16,7 @@
         <DataGrid HorizontalAlignment="Left" Height="396" Margin="30,279,0,0" VerticalAlignment="Top" Width="532" Name="KundeNavn_DataGrid" SelectionChanged="KundeNavn_DataGrid_SelectionChanged" ItemsSource="{Binding getCustomerAccounts}" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand">
              <DataGrid.Columns>
                 <DataGridTextColumn Header="Konto nr." Binding="{Binding Accountnumber}"/>
-                <DataGridTextColumn Header="Saldo" Binding="{Binding Balance}"/>
+                <DataGridTextColumn Header="Saldo" Binding="{Binding Balance, StringFormat=c, ConverterCulture='dk-DK'}"/>
                 <DataGridTextColumn Header="Konto Type" Binding="{Binding Accounttype}"/>
                 <DataGridTextColumn Header="Rente" Binding="{Binding Interest}"/>
                 <DataGridTextColumn Header="Opretelses Dato" Binding="{Binding AccountCreation}"/>
@@ -34,7 +34,7 @@
         <DataGrid HorizontalAlignment="Left" Height="396" Margin="623,279,0,0" VerticalAlignment="Top" Width="532" Name="Transaktion_DataGrid" ItemsSource="{Binding getTransactions}" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Cursor="Hand">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Overførelses nr." Binding="{Binding TransactionID}"/>
-                <DataGridTextColumn Header="Beløb" Binding="{Binding Amount}"/>
+                <DataGridTextColumn Header="Beløb" Binding="{Binding Amount, StringFormat=c, ConverterCulture='dk-DK' }"/>
                 <DataGridTextColumn Header="Overførelses Dato" Binding="{Binding Date}"/>
 
             </DataGrid.Columns>

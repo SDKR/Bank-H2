@@ -101,19 +101,19 @@ namespace H2_Case_Bank
         {
             if (KontoType_Combobox.SelectedIndex == 0)
             {
-                Rente_TextBox.Text = "0,80";
+                Rente_TextBox.Text = "0.80";
             }
             else if (KontoType_Combobox.SelectedIndex == 1)
             {
-                Rente_TextBox.Text = "1,12";
+                Rente_TextBox.Text = "1.12";
             }
             else if (KontoType_Combobox.SelectedIndex == 2)
             {
-                Rente_TextBox.Text = "0,52";
+                Rente_TextBox.Text = "0.52";
             }
             else if (KontoType_Combobox.SelectedIndex == 3)
             {
-                Rente_TextBox.Text = "2,07";
+                Rente_TextBox.Text = "2.07";
             }
         }
         private void UdførButton_content()

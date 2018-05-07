@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace H2_Case_Bank
 {
-    class Transaction : Account
+    class Transaction : IDBTransactions
     {
 
         DBTransaction dbt = new DBTransaction();
@@ -21,6 +21,6 @@ namespace H2_Case_Bank
         {
             return dbt.getTransactions(acc);
         }
-
+        
     }
 }
